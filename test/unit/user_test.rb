@@ -7,14 +7,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
 
-  test "should fail if user tries to vote too many times" do
-  end
-
-
-  test "should fail if user votes more than once on a talk" do
-  end
-
-  
   test "should cast a vote" do
     assert_equal false, users(:two).voted_for?(talks(:two))
 
@@ -23,5 +15,13 @@ class UserTest < ActiveSupport::TestCase
     end
 
     assert_equal true, users(:two).voted_for?(talks(:two))
+  end
+
+  
+  test "should create user" do
+    assert_difference('User.count', 1) do
+      user = User.new(:twitter_name => 'name')
+      user.save!
+    end
   end
 end
