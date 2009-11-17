@@ -8,7 +8,6 @@ class UserTest < ActiveSupport::TestCase
 
 
   test "should fail if user tries to vote too many times" do
-    
   end
 
 
@@ -16,6 +15,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   
-  test ""
+  test "should cast a vote" do
+    assert_equal false, users(:two).voted_for?(talks(:two))
 
+    assert_difference('Vote.count', 1) do
+      users(:two).vote! talks(:two)
+    end
+
+    assert_equal true, users(:two).voted_for?(talks(:two))
+  end
 end

@@ -15,3 +15,51 @@
   [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
   [4;36;1mTalk Load (0.4ms)[0m   [0;1mSELECT * FROM "talks" WHERE ("talks"."id" = 2053932785) [0m
   [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 298486374) [0m
+  [4;35;1mTalk Load (0.4ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 298486374) [0m
+  [4;36;1mTalk Load (0.4ms)[0m   [0;1mSELECT * FROM "talks" WHERE ("talks"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 298486374) [0m
+  [4;35;1mTalk Load (0.3ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 298486374) [0m
+  [4;36;1mTalk Load (0.4ms)[0m   [0;1mSELECT * FROM "talks" WHERE ("talks"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 298486374) [0m
+  [4;35;1mTalk Load (0.3ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 298486374) [0m
+  [4;36;1mTalk Load (0.4ms)[0m   [0;1mSELECT * FROM "talks" WHERE ("talks"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 298486374) [0m
+  [4;35;1mTalk Load (0.3ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 298486374) [0m
+  [4;36;1mVote Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: conditions.talk: SELECT "votes".id FROM "votes" WHERE ("conditions"."talk" = 298486374) AND ("votes".user_id = 298486374) LIMIT 1[0m
+  [4;35;1mTalk Load (0.4ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 298486374) [0m
+  [4;35;1mTalk Load (0.3ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 298486374) [0m
+  [4;36;1mVote Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: conditions.talk_id: SELECT "votes".id FROM "votes" WHERE ("conditions"."talk_id" = 298486374) AND ("votes".user_id = 298486374) LIMIT 1[0m
+  [4;35;1mTalk Load (0.4ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 298486374) [0m
+  [4;35;1mTalk Load (0.3ms)[0m   [0mSELECT * FROM "talks" WHERE ("talks"."id" = 298486374) [0m
+  [4;36;1mVote Load (0.1ms)[0m   [0;1mSELECT "votes".id FROM "votes" WHERE ("votes"."talk_id" = 298486374) AND ("votes".user_id = 298486374) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "votes" [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 298486374) [0m
+  [4;35;1mVote Create (0.2ms)[0m   [0mINSERT INTO "votes" ("updated_at", "talk_id", "user_id", "created_at") VALUES('2009-11-17 05:47:09', 298486374, 298486374, '2009-11-17 05:47:09')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "votes" [0m
+  [4;35;1mVote Load (0.2ms)[0m   [0mSELECT "votes".id FROM "votes" WHERE ("votes"."talk_id" = 298486374) AND ("votes".user_id = 298486374) LIMIT 1[0m
+  [4;36;1mTalk Load (0.4ms)[0m   [0;1mSELECT * FROM "talks" WHERE ("talks"."id" = 2053932785) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2053932785) [0m
