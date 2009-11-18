@@ -6,7 +6,8 @@ class TalksControllerTest < ActionController::TestCase
     assert_response :success
 
     talks = Talk.all
-    talks = talks.sort_by { |talk| talk.votes.count } # TODO: secondary sort by created_at DESC
+    talks = talks.sort_by { |talk| [talk.votes.count, talk.id] }
+    talks.reverse!
 
     assert_equal talks, assigns(:talks)
   end

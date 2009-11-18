@@ -8,7 +8,8 @@ class Talk < ActiveRecord::Base
 
   def self.all_ordered_by_votes
     talks = Talk.all
-    talks = talks.sort_by { |talk| talk.votes.count } # TODO: secondary sort by created_at DESC
+    talks = talks.sort_by { |talk| [talk.votes.count, talk.id] }
+    talks.reverse!
     talks
   end
 end
