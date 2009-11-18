@@ -1,0 +1,11 @@
+Hello, world!
+%br
+
+- if @user
+  You're logged in! Welcome, #{@user.twitter_name}.
+  %br
+  = link_to "Log out", user_logout_path
+- else
+  %p= link_to "Live login", user_login_path
+  %p= link_to "Developer log in: RohanM", user_login_dev_path(:twitter_name => "RohanM")
+  %p= link_to "Developer log in: klepas", user_login_dev_path(:twitter_name => "klepas")
