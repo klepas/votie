@@ -1,7 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  twitter_name: MyString
+  id: 1
+  twitter_name: fraying
 
 two:
-  twitter_name: MyString
+  id: 2
+  twitter_name: madpilot

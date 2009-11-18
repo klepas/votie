@@ -2,17 +2,17 @@
 
 one:
   id: 1
-  title: MyString
+  title: The Wisdom of Community
   user_id: 1
-  description: MyString
-  link: MyString
+  description: Closing keynote for Edge of the Web
+  link: http://blah.com
 
 two:
   id: 2
-  title: MyString
-  user_id: 1
-  description: MyString
-  link: MyString
+  title: Stuff They Never Taught You At Website School
+  user_id: 2
+  description: Another EOTW talk
+  link: http://example.com
 
 three:
   id: 3
