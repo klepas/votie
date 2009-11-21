@@ -11,4 +11,12 @@ class TalksControllerTest < ActionController::TestCase
 
     assert_equal talks, assigns(:talks)
   end
+
+
+  test "should get voting page" do
+    get :vote, {}, {:user_id => users(:one).id}
+    assert_response :success
+
+    assert_equal [4, 3, 2, 1], assigns(:talks).map { |t| t.id }
+  end
 end

@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect 'talks/vote', :controller => 'talks', :action => 'vote'
   map.resources :talks
 
   map.user_login 'users/login', :controller => 'users', :action => 'login'

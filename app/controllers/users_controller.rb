@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def secure?
+    not ['login_dev', 'login', 'callback'].include?(action_name)
+  end
+
+
   # Log user in without going through twitter
   def login_dev
     @user = User.first(:conditions => {:twitter_name => params[:twitter_name]})
@@ -9,7 +14,7 @@ class UsersController < ApplicationController
       @user.save!
     end
 
-    session[:user] = @user
+    session[:user_id] = @user.id
     
     # Redirect to the talks page
     redirect_to(talks_url)
@@ -55,7 +60,7 @@ class UsersController < ApplicationController
         end
 
         # Store user in session
-        session[:user] = @user
+        session[:user_id] = @user.id
 
         # Redirect to the talks page
         redirect_to(talks_url)
@@ -74,7 +79,7 @@ class UsersController < ApplicationController
 
   # Log out
   def logout
-    session[:user] = nil
+    session[:user_id] = nil
     flash[:notice] = "You have successfully logged out. Goodbye!"
     redirect_to(talks_url)
   end

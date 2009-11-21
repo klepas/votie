@@ -11,21 +11,44 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
 
-  before_filter :init_twitter_oauth
+  before_filter :authorize
 
-  def init_twitter_oauth
-    token = ''
-    secret = ''
+  def authorize
+    begin
+      token = ''
+      secret = ''
 
-    if session[:user]
-      @user = session[:user]
-      token = @user.token
-      secret = @user.secret
+      # Load user
+      if session[:user_id]
+        @user = User.find(session[:user_id])
+        token = @user.token
+        secret = @user.secret
+      end
+
+      # Check authorization
+      if secure? and not @user
+        session[:return_to] = request.request_uri
+        flash[:notice] = "Please log in to view this page."
+        redirect_to :controller => 'talk', :action => 'index'
+      end
+
+    rescue ActiveRecord::RecordNotFound
+      session[:user_id] = nil
     end
 
+    # Initialise Twitter client
     @client = TwitterOAuth::Client.new(:consumer_key => TwitterOAuth::CONSUMER_KEY,
                                        :consumer_secret => TwitterOAuth::CONSUMER_SECRET,
                                        :token => token,
                                        :secret => secret)
+  end
+
+
+  # Return whether this controller requires authorization
+  # When overriding this method, you can secure only a limited set of methods like this:
+  #   not ["insecureMethod", "anotherInsecureMethod"].include?(action_name)
+  def secure?
+    # All controllers are secure (require login) by default
+    true
   end
 end
