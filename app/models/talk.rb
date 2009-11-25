@@ -12,4 +12,17 @@ class Talk < ActiveRecord::Base
     talks.reverse!
     talks
   end
+
+
+  # Guesses whether slides are PDF (.pdf extension), a slideshare link (contains slideshare.com)
+  # or other. Returns type 'pdf', 'slideshare' or 'other'.
+  def slide_type
+    if self.link =~ /\.pdf$/
+      'pdf'
+    elsif self.link =~ /slideshare\.com/
+      'slideshare'
+    else
+      'other'
+    end
+  end
 end

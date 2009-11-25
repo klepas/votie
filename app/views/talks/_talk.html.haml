@@ -9,4 +9,4 @@
   .description Description: #{talk.description}
 
   - if talk.link
-    .link Slides: #{link_to "Clicky", talk.link}
+    .link #{link_to slide_type_text(talk.slide_type), talk.link}
