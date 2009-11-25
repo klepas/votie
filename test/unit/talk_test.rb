@@ -34,4 +34,10 @@ class TalkTest < ActiveSupport::TestCase
     talks = Talk.all_ordered_by_votes
     assert_equal [2, 4, 3, 1], talks.map {|t| t.id}
   end
+
+
+  test "should get number of votes" do
+    assert_equal 0, talks(:one).num_votes
+    assert_equal 1, talks(:two).num_votes
+  end
 end

@@ -14,6 +14,11 @@ class Talk < ActiveRecord::Base
   end
 
 
+  def num_votes
+    self.votes.count
+  end
+
+
   # Guesses whether slides are PDF (.pdf extension), a slideshare link (contains slideshare.com)
   # or other. Returns type 'pdf', 'slideshare' or 'other'.
   def slide_type
