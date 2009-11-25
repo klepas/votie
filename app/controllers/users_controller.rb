@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.first(:conditions => {:twitter_name => params[:twitter_name]})
     if !@user
       @user = User.new(:twitter_name => params[:twitter_name],
+                       :name => params[:name],
                        :token => '123',
                        :secret => '123')
       @user.save!
@@ -49,11 +50,13 @@ class UsersController < ApplicationController
         # We have an authorized user, save the information to the database.
         @user = User.first(:conditions => ["twitter_name = ?", user_info['screen_name']])
         if @user
+          @user.name = user_info['name']
           @user.token = @access_token.token
           @user.secret = @access_token.secret
           @user.save!
         else
           @user = User.new({ :twitter_name => user_info['screen_name'],
+                             :name => user_info['name'],
                              :token => @access_token.token,
                              :secret => @access_token.secret })
           @user.save!

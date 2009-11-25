@@ -2,7 +2,7 @@
 
 - @presenters.each do |presenter|
   .presenter
-    = link_to presenter.twitter_name, '#'
+    = link_to presenter.name, '#'
     .presenter-talks
       - presenter.talks.each do |talk|
         = render :partial => 'talk', :locals => {:talk => talk}
