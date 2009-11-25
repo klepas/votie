@@ -1,8 +1,4 @@
 %h2 Vote on some talks
 
 - @talks.each do |talk|
-  .talk
-    = talk.title
-    = talk.presenter.twitter_name
-    = talk.description
-    = link_to "Talk slides", talk.link if talk.link
+  = render :partial => 'talk', :locals => {:talk => talk}

@@ -4,6 +4,10 @@ Hello, world!
 - if @user
   You're logged in! Welcome, #{@user.twitter_name}.
   %br
+  = link_to "Results", talks_path
+  = link_to "Vote", vote_path
+  = link_to "Presenters", presenters_path
+  = link_to "Submit talk", new_talk_path
   = link_to "Log out", user_logout_path
 - else
   %p= link_to "Live login", user_login_path
@@ -13,8 +17,4 @@ Hello, world!
 %h2 Popular talks
 
 - @talks.each do |talk|
-  .talk
-    = talk.title
-    = talk.presenter.twitter_name
-    = talk.description
-    = link_to "Talk slides", talk.link if talk.link
+  = render :partial => 'talk', :locals => {:talk => talk}

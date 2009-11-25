@@ -1,0 +1,12 @@
+.talk
+  .actions
+    Edit | Cast vote | Remove vote | +3
+
+  .title= talk.title
+
+  .presenter Presenter: #{link_to talk.presenter.twitter_name, "http://twitter.com/" + talk.presenter.twitter_name}
+
+  .description Description: #{talk.description}
+
+  - if talk.link
+    .link Slides: #{link_to "Clicky", talk.link}
