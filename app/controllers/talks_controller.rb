@@ -34,4 +34,31 @@ class TalksController < ApplicationController
       render :action => "new"
     end
   end
+
+
+  def edit
+    @talk = Talk.find(params[:id])
+
+    if @talk.presenter != @user
+      flash[:notice] = "You may not edit someone else's talk."
+      redirect_to talks_path and return
+    end
+  end
+
+
+  def update
+    @talk = Talk.find(params[:id])
+    
+    if @talk.presenter != @user
+      flash[:notice] = "You may not edit someone else's talk."
+      redirect_to talks_path and return
+    end
+
+    if @talk.update_attributes(params[:talk])
+      flash[:notice] = "Your talk has been updated."
+      redirect_to talks_path
+    else
+      render :action => "edit"
+    end
+  end
 end

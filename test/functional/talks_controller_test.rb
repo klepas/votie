@@ -71,4 +71,60 @@ class TalksControllerTest < ActionController::TestCase
     assert_equal description, talk.description
     assert_equal link, talk.link
   end
+
+
+  test "should get edit talk page" do
+    get :edit, {:id => talks(:one).id}, {:user_id => users(:one).id}
+    assert_response :success
+  end
+
+
+  test "edit should redirect if editing someone else's talk" do
+    get :edit, {:id => talks(:one).id}, {:user_id => users(:two).id}
+    assert_redirected_to talks_path
+    assert_equal "You may not edit someone else's talk.", flash[:notice]
+  end
+
+
+  test "should update guest" do
+    title = 'new title'
+    description = 'new description'
+    link = 'new link'
+
+    # Check vars
+    assert_not_equal title, talks(:one).title
+    assert_not_equal description, talks(:one).description
+    assert_not_equal link, talks(:one).link
+
+    put(:update,
+        {:id => talks(:one).id,
+         :talk => {:title => title,
+                   :description => description,
+                   :link => link,
+          }},
+        {:user_id => users(:one).id})
+    assert_redirected_to talks_path
+
+    talks(:one).reload
+    assert_equal title, talks(:one).title
+    assert_equal description, talks(:one).description
+    assert_equal link, talks(:one).link
+  end
+
+
+  test "should fail if editing someone else's talk" do
+    title = 'new title'
+    description = 'new description'
+    link = 'new link'
+
+    put(:update,
+        {:id => talks(:one).id,
+         :talk => {:title => title,
+                   :description => description,
+                   :link => link,
+          }},
+        {:user_id => users(:two).id})
+    assert_redirected_to talks_path
+    assert_equal "You may not edit someone else's talk.", flash[:notice]
+  end
 end

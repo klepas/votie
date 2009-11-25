@@ -1,7 +1,4 @@
 .talk
-  .actions
-    Edit | Cast vote | Remove vote | +3
-
   .title= talk.title
 
   .presenter Presenter: #{link_to talk.presenter.name, "http://twitter.com/" + talk.presenter.twitter_name}
@@ -10,3 +7,7 @@
 
   - if talk.link
     .link #{link_to slide_type_text(talk.slide_type), talk.link}
+
+  .actions
+    = link_to "Edit", edit_talk_path(talk) if talk.presenter == @user
+    | Cast vote | Remove vote | +3
