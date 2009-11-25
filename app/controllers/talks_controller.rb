@@ -12,4 +12,9 @@ class TalksController < ApplicationController
   def vote
     @talks = Talk.all(:order => 'id DESC')
   end
+
+
+  def presenters
+    @presenters = User.all_presenters
+  end
 end

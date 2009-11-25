@@ -1,0 +1,8 @@
+- @presenters.each do |presenter|
+  .presenter
+    = link_to presenter.twitter_name, '#'
+    .presenter-talks
+      - presenter.talks.each do |talk|
+        .talk
+          TODO: Talk info for talk: #{talk.title}
+        

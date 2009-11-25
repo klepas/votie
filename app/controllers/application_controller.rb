@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
       if secure? and not @user
         session[:return_to] = request.request_uri
         flash[:notice] = "Please log in to view this page."
-        redirect_to :controller => 'talk', :action => 'index'
+        redirect_to :controller => 'talks', :action => 'index'
       end
 
     rescue ActiveRecord::RecordNotFound
