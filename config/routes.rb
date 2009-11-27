@@ -1,6 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.cast_vote 'votes/cast/:id', :controller => 'votes', :action => 'cast'
+  map.remove_vote 'votes/remove/:id', :controller => 'votes', :action => 'remove'
+
   map.vote 'talks/vote', :controller => 'talks', :action => 'vote'
   map.presenters 'talks/presenters', :controller => 'talks', :action => 'presenters'
+  map.talk_not_found 'talks/not_found', :controller => 'talks', :action => 'not_found'
   map.resources :talks
 
   map.user_login 'users/login', :controller => 'users', :action => 'login'

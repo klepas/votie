@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
 
   before_filter :authorize
+  around_filter :handle_talk_not_found
 
   def authorize
     begin
@@ -42,6 +43,16 @@ class ApplicationController < ActionController::Base
                                        :token => token,
                                        :secret => secret)
   end
+
+
+  def handle_talk_not_found
+    begin
+      yield
+    rescue ActiveRecord::RecordNotFound
+      redirect_to talk_not_found_path
+    end
+  end
+
 
 
   # Return whether this controller requires authorization

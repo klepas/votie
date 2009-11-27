@@ -1,4 +1,4 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# users(:one) has voted for talks(:two). So they're free to vote for talks(:one).
 
 one:
   user_id: 1

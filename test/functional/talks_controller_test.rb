@@ -127,4 +127,35 @@ class TalksControllerTest < ActionController::TestCase
     assert_redirected_to talks_path
     assert_equal "You may not edit someone else's talk.", flash[:notice]
   end
+
+
+  test "should show cast vote links" do
+    get :vote, {}, {:user_id => users(:one).id}
+    assert_response :success
+
+    # There's four talks. We've already voted on talks(:two), but we should have cast vote links for the rest.
+    assert_select "a", {:text => "Cast vote", :count => 3}
+  end
+
+
+  test "should not show cast vote links when all votes used" do
+    # Vote on a few more talks
+    users(:one).vote!(talks(:one))
+    users(:one).vote!(talks(:three))
+
+    get :vote, {}, {:user_id => users(:one).id}
+    assert_response :success
+
+    assert_select "a", {:text => "Cast vote", :count => 0}
+  end
+
+
+  test "should show remove vote link" do
+    get :vote, {}, {:user_id => users(:one).id}
+    assert_response :success
+
+    # There's four talks. We've already voted on talks(:two), so we should have one remove vote link.
+    assert_select "a", {:text => "Remove vote", :count => 1}
+  end
+
 end

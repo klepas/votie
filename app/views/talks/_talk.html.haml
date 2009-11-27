@@ -10,4 +10,6 @@
 
   .actions
     = link_to "Edit", edit_talk_path(talk) if talk.presenter == @user
-    | Cast vote | Remove vote | +#{talk.num_votes}
+    = link_to "Cast vote", cast_vote_path(talk) if @allow_voting and @user.can_vote_for?(talk)
+    = link_to "Remove vote", remove_vote_path(talk) if @allow_voting and @user.voted_for?(talk)
+    = "+#{talk.num_votes}" if !@allow_voting

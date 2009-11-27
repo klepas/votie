@@ -1,6 +1,13 @@
 class TalksController < ApplicationController
+  before_filter :init
+
   def secure?
     not ['index'].include?(action_name)
+  end
+
+  def init
+    # Default to not showing vote links on views
+    @allow_voting = false
   end
 
 
@@ -11,6 +18,7 @@ class TalksController < ApplicationController
 
   def vote
     @talks = Talk.all(:order => 'id DESC')
+    @allow_voting = true
   end
 
 
@@ -61,4 +69,5 @@ class TalksController < ApplicationController
       render :action => "edit"
     end
   end
+
 end

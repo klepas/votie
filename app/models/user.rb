@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
   end
 
 
+  def can_vote_for?(talk)
+    !self.voted_for?(talk) and self.votes.count < Site::NUM_VOTES_PER_USER
+  end
+
+
   def vote!(talk)
     self.votes.create(:talk => talk)
   end
