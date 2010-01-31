@@ -1,12 +1,39 @@
 # Todo: switch all px units to ems
 
-# Reset stylesheet
+##	Color palette
+	
+##	white, snow		-	#fff		-	main container bg;
+##	black, pitch	- 	#000		- 	night sky;
+##	gray, dark		-	#333		-	main body copy;
+##	gray, medium	-	#666		-	secondary copy;
+##	gray, light		-	#999		-	secondary copy;
+##	red, dark		-	#bb0000		-	headings;
+##	brown, light	-	#fbeec2		-	link hovers.
+##	blue, desat.	-	#336699		-	links
+##	---------------------------------------------------------
+
+
+# Reset stylesheeth
 @import reset
+
+html
+  overflow-y: scroll
+  # Fixes Firefox scrollbar jump
+
+body
+  font-size: 62.5%
+  font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif 
+
+div#container
+  width: 96em
+  margin: 3.2em auto 0 auto
+  p
+    font-size: 1.6em
+
+h1
+  font-size: 4.8em
+  margin-bottom: 8px
 
 h2
   font-size: 1.8em
-  margin-bottom: 6px
-
-.talk
-  border: 1px solid black
-  margin-bottom: 1em
+  margin-bottom: 8px
