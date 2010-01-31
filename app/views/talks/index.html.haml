@@ -1,20 +1,34 @@
-Hello, world!
-%br
+#header
+  %h1 votie!
+  
+  %ul
+    %li
+      =link_to "Home", talks_path, {:class => :home}
+    %li
+      =link_to "vote on talks", vote_path, {:class => :vote}
+    %li
+      =link_to "submit a talk", new_talk_path
+    %li
+      =link_to "view presenters", presenters_path
+
 
 - if @user
   You're logged in! Welcome, #{@user.name}.
   %br
-  = link_to "Results", talks_path
-  = link_to "Vote", vote_path
-  = link_to "Presenters", presenters_path
-  = link_to "Submit talk", new_talk_path
   = link_to "Log out", user_logout_path
 - else
   %p= link_to "Live login", user_login_path
   %p= link_to "Developer log in: RohanM", user_login_dev_path(:twitter_name => "RohanM", :name => "Rohan")
   %p= link_to "Developer log in: klepas", user_login_dev_path(:twitter_name => "klepas", :name => "Pascal")
 
-%h2 Popular talks
+  %p
+    votie is a simple voting application to track presentations at events&thinsp;&mdash;&thinsp;come fork me at 
+    =link_to "GitHub.com", "http://github.com/klepas/votie"
+    !
 
-- @talks.each do |talk|
-  = render :partial => 'talk', :locals => {:talk => talk}
+#talks
+
+  %h2 Popular talks
+
+  - @talks.each do |talk|
+    = render :partial => 'talk', :locals => {:talk => talk}
