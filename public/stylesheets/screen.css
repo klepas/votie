@@ -34,19 +34,136 @@ html {
 
 body {
   font-size: 62.5%;
-  font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif; }
+  font-family: "Chaparral Pro", Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
+  line-height: 1.5;
+  background-color: #dfdfdf;
+  color: #222; }
 
-div#container {
+div#container p {
+  font-size: 1.6em;
+  margin-bottom: 1em; }
+div#container div.page {
   width: 96em;
-  margin: 3.2em auto 0 auto; 
-  }
-  div#container p {
-    font-size: 1.6em; }
+  margin: 0 auto 2.4em auto; }
 
-h1 {
-  font-size: 4.8em;
-  margin-bottom: 8px; }
+div#header {
+  padding-top: 9.6em; }
+  div#header h1 {
+    font-size: 4.8em;
+    margin-bottom: 8px; }
+    div#header h1 a img#logo {
+      float: left;
+      display: block;
+      margin-top: -1em; }
+  div#header ul.nav {
+    font-size: 2.6em;
+    color: #333;
+    list-style: none;
+    display: inline;
+    float: right;
+    padding-bottom: 0.5em; }
+    div#header ul.nav li {
+      float: left; }
+      div#header ul.nav li a {
+        display: block;
+        padding-left: 2em;
+        font-weight: bold;
+        text-decoration: none;
+        color: #222;
+        text-shadow: 1px 1px 2px white; }
+      div#header ul.nav li a:hover {
+        text-decoration: underline;
+        color: #9e2519; }
+      div#header ul.nav li a.home {
+        text-transform: lowercase;
+        font-variant: small-caps;
+        color: #545454; }
+      div#header ul.nav li a.vote {
+        font-style: italic; }
+  div#header p.hero {
+    font-size: 2.2em;
+    text-shadow: 1px 1px 1px white;
+    padding: 1.5em 3em;
+    float: right;
+    width: 600px; }
+
+#secondary-nav {
+  position: absolute;
+  top: 0;
+  height: 4.8em;
+  width: 100%;
+  background: white url(/images/topbar.png) bottom repeat-x; }
+  #secondary-nav span.github, #secondary-nav div.login-toggle {
+    font-family: "Lucida Grande", sans-serif;
+    font-size: 1.4em;
+    margin-top: 1em; }
+  #secondary-nav div.login-toggle {
+    float: right; }
+  #secondary-nav span.github {
+    float: left; }
+  #secondary-nav span.signed-in {
+    float: left;
+    margin-right: 2em; }
+  #secondary-nav span.sign-out {
+    float: left; }
+    #secondary-nav span.sign-out a {
+      color: #4e9a06; }
+
+#talks.page h2.talks {
+  font-size: 2.2em;
+  text-shadow: 1px 1px 2px white;
+  width: 100%;
+  padding-bottom: 1em;
+  margin-bottom: 0;
+  border-bottom: 3px solid white;
+  display: block; }
+#talks.page h2.talks:before {
+  content: "\2003 \2014 \2002"; }
+#talks.page h2.talks:after {
+  content: "\2002 \2014"; }
+#talks.page .talk-list {
+  background: #eee;
+  border-top: 1px solid #ccc;
+  padding: 3.2em 5.6em; }
+  #talks.page .talk-list .talk {
+    padding: 2.4em 0; }
+  #talks.page .talk-list div.title, #talks.page .talk-list div.presenter, #talks.page .talk-list div.description, #talks.page .talk-list div.link {
+    margin-bottom: 0.5em; }
+  #talks.page .talk-list div.title {
+    font-size: 2.2em;
+    font-weight: bold;
+    font-style: italic; }
+  #talks.page .talk-list div.presenter {
+    font-size: 2.2em; }
+  #talks.page .talk-list div.description, #talks.page .talk-list div.link {
+    font-size: 1.8em; }
+  #talks.page .talk-list div.actions {
+    font-size: 1.4em;
+    font-family: "Lucida Grande", sans-serif; }
+
+#footer p.copyright, #footer p.forking {
+  font-size: 1.4em;
+  font-family: "Lucida Grande", sans-serif;
+  margin-bottom: 1em; }
 
 h2 {
   font-size: 1.8em;
   margin-bottom: 8px; }
+
+h3 {
+  font-size: 1.6em;
+  margin-bottom: 8px; }
+
+a {
+  color: #204a87;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+.clear {
+  clear: both; }
+
+.amp {
+  font-family: Palatino, Baskerville, Georgia, serif;
+  font-style: italic; }

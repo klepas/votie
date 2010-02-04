@@ -1,39 +1,167 @@
-# Todo: switch all px units to ems
+// Todo: switch all px units to ems
 
-##	Color palette
+//	Color palette
 	
-##	white, snow		-	#fff		-	main container bg;
-##	black, pitch	- 	#000		- 	night sky;
-##	gray, dark		-	#333		-	main body copy;
-##	gray, medium	-	#666		-	secondary copy;
-##	gray, light		-	#999		-	secondary copy;
-##	red, dark		-	#bb0000		-	headings;
-##	brown, light	-	#fbeec2		-	link hovers.
-##	blue, desat.	-	#336699		-	links
-##	---------------------------------------------------------
+//	white, snow		-	#fff		-	main container bg;
+//	black, pitch	- 	#000		- 	night sky;
+//	gray, dark		-	#222		-	main body copy;
+//	gray, medium	-	#545454		-	secondary copy;
+//	gray, light		-	#999		-	secondary copy;
+//	red, dark		-	#9e2519		-	headings;
+//	blue, desat.	-	#204a87		-	links
+//	---------------------------------------------------------
 
 
-# Reset stylesheeth
+// Reset stylesheet
+
 @import reset
+
 
 html
   overflow-y: scroll
-  # Fixes Firefox scrollbar jump
+  // Fixes Firefox scrollbar jump
 
 body
   font-size: 62.5%
-  font-family: Georgia, "DejaVu Serif", Times, "Times New Roman", serif 
+  font-family: "Chaparral Pro", Georgia, "DejaVu Serif", Times, "Times New Roman", serif
+  line-height: 1.5
+  background-color: #dfdfdf
+  color: #222
 
 div#container
-  width: 96em
-  margin: 3.2em auto 0 auto
   p
     font-size: 1.6em
+    margin-bottom: 1em
+  div.page
+    width: 96em
+    margin: 0 auto 2.4em auto
 
-h1
-  font-size: 4.8em
-  margin-bottom: 8px
+div#header
+  padding-top: 9.6em
+  h1
+    font-size: 4.8em
+    margin-bottom: 8px
+    a img#logo
+      float: left
+      display: block
+      margin-top: -1em
+  ul.nav
+    font-size: 2.6em
+    color: #333
+    list-style: none
+    display: inline
+    float: right
+    padding-bottom: 0.5em
+    li
+      float: left
+      a
+        display: block
+        padding-left: 2em
+        font-weight: bold
+        text-decoration: none
+        color: #222
+        text-shadow: 1px 1px 2px white
+      a:hover
+        text-decoration: underline
+        color: #9e2519
+      a.home
+        text-transform: lowercase
+        font-variant: small-caps
+        color: #545454
+      a.vote
+        font-style: italic
+  p.hero
+    font-size: 2.2em
+    text-shadow: 1px 1px 1px white
+    padding: 1.5em 3em
+    float: right
+    width: 600px
+
+#secondary-nav
+  position: absolute
+  top: 0
+  height: 4.8em
+  width: 100%
+  background: white url(/images/topbar.png) bottom repeat-x
+  span.github, div.login-toggle
+    font-family: "Lucida Grande", sans-serif
+    font-size: 1.4em
+    margin-top: 1em
+  div.login-toggle
+    float: right
+  span.github
+    float: left
+  span.signed-in
+    float: left
+    margin-right: 2em
+  span.sign-out
+    float: left
+    a
+      color: #4e9a06
+
+#talks.page
+  h2.talks
+    font-size: 2.2em
+    text-shadow: 1px 1px 2px white
+    width: 100%
+    padding-bottom: 1em
+    margin-bottom: 0
+    border-bottom: 3px solid white
+    display: block
+  h2.talks:before
+    content: "\2003 \2014 \2002"
+  h2.talks:after
+    content: "\2002 \2014"
+  .talk-list
+    background: #eee
+    border-top: 1px solid #ccc
+    padding: 3.2em 5.6em
+    .talk
+      padding: 2.4em 0
+    div.title, div.presenter, div.description, div.link
+      margin-bottom: 0.5em
+    div.title
+      font-size: 2.2em
+      font-weight: bold
+      font-style: italic
+    div.presenter
+      font-size: 2.2em
+    div.description, div.link
+      font-size: 1.8em
+    div.actions
+      font-size: 1.4em
+      font-family: "Lucida Grande", sans-serif
+    
+
+// Footer
+
+#footer
+  p.copyright, p.forking
+    font-size: 1.4em
+    font-family: "Lucida Grande", sans-serif
+    margin-bottom: 1em
+
+// Other common elements
 
 h2
   font-size: 1.8em
   margin-bottom: 8px
+h3
+  font-size: 1.6em
+  margin-bottom: 8px
+
+a
+  color: #204a87
+  text-decoration: none
+a:hover
+  text-decoration: underline
+
+
+// Miscellaneous styles
+
+.clear
+  clear: both
+
+.amp
+  font-family: Palatino, Baskerville, Georgia, serif
+  font-style: italic

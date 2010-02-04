@@ -1,7 +1,11 @@
-#header
-  %h1 votie!
+#header.page
+  %h1
+    %a{:href => :home}
+      %img#logo{:src => "/images/logo.png", :alt => "votie!"}
+      // The image is as central to votie as the text, hence no image replacement :)
   
-  %ul
+  %ul.nav
+    // This is the nav
     %li
       =link_to "Home", talks_path, {:class => :home}
     %li
@@ -11,24 +15,42 @@
     %li
       =link_to "view presenters", presenters_path
 
+  %p.hero
+    // This is the explanatory hero text
+    %strong votie 
+    is a simple web-app designed for 
+    =link_to "Barcamps", "http://en.wikipedia.org/wiki/BarCamp" 
+    that tracks speakers 
+    %span.amp &amp;
+    their presentations with a simple voting system to find the cream-of-the-crop.
+    
+  %div.clear
+
+#secondary-nav
+  .page
+    %span.github
+      %a{:href => "http://github.com/klepas/votie", :title => "Fork the votie source code on GitHub"}
+        Fork me on Github!
+    %div.login-toggle
+      %span.signed-in
+        Signed-in as
+        = link_to "@klepas", user_login_dev_path(:twitter_name => "klepas", :name => "klepas")
+      / Dynamic hook calls the user twitter profile. The hook needs to be fixed or implemented (wasn't sure what it is). The other thing we could do is profile a :hover widget that tells them they are logged in and authed via Twitter so they donÕt blindly click the link and leave the votie instance.
+      %span.sign-out
+        = link_to "Sign out?", user_logout_path
+
+#talks.page
+  %h2.talks Popular talks
+  .talk-list
+    // Grabs the talks
+    - @talks.each do |talk|
+      = render :partial => 'talk', :locals => {:talk => talk}
 
 - if @user
-  You're logged in! Welcome, #{@user.name}.
+  You&rsquo;re logged in! Welcome, #{@user.name}.
   %br
   = link_to "Log out", user_logout_path
 - else
   %p= link_to "Live login", user_login_path
   %p= link_to "Developer log in: RohanM", user_login_dev_path(:twitter_name => "RohanM", :name => "Rohan")
   %p= link_to "Developer log in: klepas", user_login_dev_path(:twitter_name => "klepas", :name => "Pascal")
-
-  %p
-    votie is a simple voting application to track presentations at events&thinsp;&mdash;&thinsp;come fork me at 
-    =link_to "GitHub.com", "http://github.com/klepas/votie"
-    !
-
-#talks
-
-  %h2 Popular talks
-
-  - @talks.each do |talk|
-    = render :partial => 'talk', :locals => {:talk => talk}
