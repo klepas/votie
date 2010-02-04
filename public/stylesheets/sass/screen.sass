@@ -17,6 +17,8 @@
 @import reset
 
 
+// Main body and block elements
+
 html
   overflow-y: scroll
   // Fixes Firefox scrollbar jump
@@ -25,7 +27,7 @@ body
   font-size: 62.5%
   font-family: "Chaparral Pro", Georgia, "DejaVu Serif", Times, "Times New Roman", serif
   line-height: 1.5
-  background-color: #dfdfdf
+  background: #dfdfdf url(/images/bg.png) repeat
   color: #222
 
 div#container
@@ -44,7 +46,6 @@ div#header
     a img#logo
       float: left
       display: block
-      margin-top: -1em
   ul.nav
     font-size: 2.6em
     color: #333
@@ -52,6 +53,7 @@ div#header
     display: inline
     float: right
     padding-bottom: 0.5em
+    background: url(/images/dot.png) repeat-x bottom
     li
       float: left
       a
@@ -68,6 +70,7 @@ div#header
         text-transform: lowercase
         font-variant: small-caps
         color: #545454
+        padding-left: 0
       a.vote
         font-style: italic
   p.hero
@@ -136,6 +139,8 @@ div#header
 // Footer
 
 #footer
+  background: url(/images/dot.png) top repeat-x
+  padding: 2.4em 0
   p.copyright, p.forking
     font-size: 1.4em
     font-family: "Lucida Grande", sans-serif

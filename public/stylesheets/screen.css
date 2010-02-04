@@ -36,7 +36,7 @@ body {
   font-size: 62.5%;
   font-family: "Chaparral Pro", Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
   line-height: 1.5;
-  background-color: #dfdfdf;
+  background: #dfdfdf url(/images/bg.png) repeat;
   color: #222; }
 
 div#container p {
@@ -53,15 +53,15 @@ div#header {
     margin-bottom: 8px; }
     div#header h1 a img#logo {
       float: left;
-      display: block;
-      margin-top: -1em; }
+      display: block; }
   div#header ul.nav {
     font-size: 2.6em;
     color: #333;
     list-style: none;
     display: inline;
     float: right;
-    padding-bottom: 0.5em; }
+    padding-bottom: 0.5em;
+    background: url(/images/dot.png) repeat-x bottom; }
     div#header ul.nav li {
       float: left; }
       div#header ul.nav li a {
@@ -77,7 +77,8 @@ div#header {
       div#header ul.nav li a.home {
         text-transform: lowercase;
         font-variant: small-caps;
-        color: #545454; }
+        color: #545454;
+        padding-left: 0; }
       div#header ul.nav li a.vote {
         font-style: italic; }
   div#header p.hero {
@@ -141,10 +142,13 @@ div#header {
     font-size: 1.4em;
     font-family: "Lucida Grande", sans-serif; }
 
-#footer p.copyright, #footer p.forking {
-  font-size: 1.4em;
-  font-family: "Lucida Grande", sans-serif;
-  margin-bottom: 1em; }
+#footer {
+  background: url(/images/dot.png) top repeat-x;
+  padding: 2.4em 0; }
+  #footer p.copyright, #footer p.forking {
+    font-size: 1.4em;
+    font-family: "Lucida Grande", sans-serif;
+    margin-bottom: 1em; }
 
 h2 {
   font-size: 1.8em;
