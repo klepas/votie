@@ -15,12 +15,3 @@
     // Grabs the talks
     - @talks.each do |talk|
       = render :partial => 'talk', :locals => {:talk => talk}
-
-- if @user
-  You&rsquo;re logged in! Welcome, #{@user.name}.
-  %br
-  = link_to "Log out", user_logout_path
-- else
-  %p= link_to "Live login", user_login_path
-  %p= link_to "Developer log in: RohanM", user_login_dev_path(:twitter_name => "RohanM", :name => "Rohan")
-  %p= link_to "Developer log in: klepas", user_login_dev_path(:twitter_name => "klepas", :name => "Pascal")

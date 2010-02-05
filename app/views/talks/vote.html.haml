@@ -1,4 +1,5 @@
-%h2 Vote on some talks
+.page
+  %h2 Vote on some talks
 
-- @talks.each do |talk|
-  = render :partial => 'talk', :locals => {:talk => talk}
+  - @talks.each do |talk|
+    = render :partial => 'talk', :locals => {:talk => talk}

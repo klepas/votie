@@ -3,8 +3,8 @@
 
   - @presenters.each do |presenter|
     .presenter
-      = link_to presenter.name, '#'
+      = link_to presenter.name, "http://twitter.com/#{presenter.twitter_name}"
       /.presenter-talks
-      /  - presenter.talks.each do |talk|
-      /  = render :partial => 'talk', :locals => {:talk => talk}
+      /- presenter.talks.each do |talk|
+      /= render :partial => 'talk', :locals => {:talk => talk}
 
