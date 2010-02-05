@@ -1,10 +1,10 @@
-.page
-  %h2 Presenters
-
-  - @presenters.each do |presenter|
-    .presenter
-      = link_to presenter.name, "http://twitter.com/#{presenter.twitter_name}"
-      /.presenter-talks
-      /- presenter.talks.each do |talk|
-      /= render :partial => 'talk', :locals => {:talk => talk}
+#presenters.page
+  %h2.presenters Presenters
+  .presenter-list
+    - @presenters.each do |presenter|
+      %span.presenter
+        = link_to presenter.name, "http://twitter.com/#{presenter.twitter_name}"
+        /.presenter-talks
+        /- presenter.talks.each do |talk|
+        /= render :partial => 'talk', :locals => {:talk => talk}
 

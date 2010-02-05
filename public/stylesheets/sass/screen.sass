@@ -100,8 +100,8 @@ div#header
     a
       color: #4e9a06
 
-#talks.page
-  h2.talks
+#talks.page, #presenters.page
+  h2.talks, h2.presenters
     font-size: 2.2em
     text-shadow: 1px 1px 2px white
     width: 100%
@@ -109,14 +109,28 @@ div#header
     margin-bottom: 0
     border-bottom: 3px solid white
     display: block
-  h2.talks:before
+  h2:before
     content: "\2003 \2014 \2002"
-  h2.talks:after
+  h2:after
     content: "\2002 \2014"
-  .talk-list
+  .talk-list, .presenter-list
     background: #eee
     border-top: 1px solid #ccc
     padding: 3.2em 5.6em
+    span.presenter
+      font-size: 3.2em
+      margin-bottom: 0.125em
+      a
+        color: #333
+        padding: 0.25em 0.5em
+      a:hover
+        color: white
+        background-color: #333
+        text-decoration: none
+        border: 2px solid #333
+        border-radius: 0.125em
+        -webkit-border-radius: 0.125em
+        -moz-border-radius: 0.125em
     .talk
       padding: 2.4em 0
     div.title, div.presenter, div.description, div.link
