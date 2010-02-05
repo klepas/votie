@@ -20,6 +20,13 @@
    version="1.0">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 500 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="1024 : 500 : 1"
+       inkscape:persp3d-origin="512 : 333.33333 : 1"
+       id="perspective747" />
     <linearGradient
        y2="351.17126"
        x2="591.36462"
@@ -99,12 +106,12 @@
      objecttolerance="10"
      inkscape:pageopacity="0.58431373"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="-47.101014"
-     inkscape:cy="1048.049"
+     inkscape:zoom="0.6075851"
+     inkscape:cx="521.25519"
+     inkscape:cy="598.14527"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="true"
+     inkscape:current-layer="layer2"
+     showgrid="false"
      inkscape:window-width="1545"
      inkscape:window-height="946"
      inkscape:window-x="85"
@@ -271,7 +278,10 @@
        width="1280"
        height="1024"
        x="-128"
-       y="-14" />
+       y="-14"
+       inkscape:export-filename="/home/klepas/.gvfs/sftp for klepas on leno.local/Users/klepas/Sites/votie/design/votie-home-view.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
   <g
      inkscape:label="main"
