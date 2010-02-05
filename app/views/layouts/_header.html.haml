@@ -1,0 +1,36 @@
+#header.page
+  %h1
+    %a{:href => '/'}
+      %img#logo{:src => "/images/logo.png", :alt => "votie!"}
+      // The image is as central to votie as the text, hence no image replacement :)
+
+  %ul.nav
+    // This is the nav
+    %li
+      =link_to "Home", talks_path, {:class => :home}
+    - if @user
+      %li
+        =link_to "vote on talks", vote_path, {:class => :vote}
+      %li
+        =link_to "submit a talk", new_talk_path
+      %li
+        =link_to "view presenters", presenters_path
+
+  = yield :hero
+
+  %div.clear
+
+#secondary-nav
+  .page
+    %span.github
+      %a{:href => "http://github.com/klepas/votie", :title => "Fork the votie source code on GitHub"}
+        Fork me on Github!
+    %div.login-toggle
+      - if @user
+        %span.signed-in
+          Signed-in as
+          = link_to "@#{@user.twitter_name}", "http://twitter.com/#{@user.twitter_name}"
+        %span.sign-out
+          = link_to "Sign out?", user_logout_path
+      - else
+        = link_to "Sign in with Twitter", user_login_path

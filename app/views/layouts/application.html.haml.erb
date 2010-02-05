@@ -16,13 +16,12 @@
 <body>
     <div id="container">
         <p id="flash"><%= flash[:notice] %></p>
-        
+
+        <%= render :partial => 'layouts/header' %>
+
         <%= yield  %>
-    
-        <div id="footer" class="page clear">
-            <p class="copyright">&copy <a href="http://rohanmitchell.com/" title="rohanmitchell.com">Rohan Mitchell</a> <span class"amp">&amp;</span> <a href="http://klepas.org" title="klepas.org">Simon Pascal Klein</a> 2010.</p>
-            <p class="forking">Come fork me at <a title="votie on GitHub.com" href="http://github.com/klepas/votie">GitHub.com</a>.</p>
-        </div>    
+
+        <%= render :partial => 'layouts/footer' %>
     </div>
 </body>
 </html>
