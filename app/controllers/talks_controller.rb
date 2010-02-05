@@ -56,7 +56,7 @@ class TalksController < ApplicationController
 
   def update
     @talk = Talk.find(params[:id])
-    
+
     if @talk.presenter != @user
       flash[:notice] = "You may not edit someone else's talk."
       redirect_to talks_path and return
@@ -70,4 +70,16 @@ class TalksController < ApplicationController
     end
   end
 
+
+  def destroy
+    @talk = Talk.find(params[:id])
+
+    if @talk.presenter != @user
+      flash[:notice] = "You may not delete someone else's talk."
+      redirect_to talks_path and return
+    end
+
+    @talk.destroy
+    redirect_to talks_path
+  end
 end

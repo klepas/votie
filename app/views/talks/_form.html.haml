@@ -18,5 +18,8 @@
 
   %p
     = f.submit 'Submit'
+    - unless @talk.new_record?
+      or
+      = link_to 'Delete', @talk, :confirm => 'Are you sure?', :method => :delete
     or
     = link_to 'Cancel', talks_path
