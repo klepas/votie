@@ -126,20 +126,25 @@ div#header {
   background: #eee;
   border-top: 1px solid #ccc;
   padding: 3.2em 5.6em; }
-  #talks.page .talk-list span.presenter, #talks.page .presenter-list span.presenter, #presenters.page .talk-list span.presenter, #presenters.page .presenter-list span.presenter {
-    font-size: 3.2em;
-    margin-bottom: 0.125em; }
-    #talks.page .talk-list span.presenter a, #talks.page .presenter-list span.presenter a, #presenters.page .talk-list span.presenter a, #presenters.page .presenter-list span.presenter a {
-      color: #333;
-      padding: 0.25em 0.5em; }
-    #talks.page .talk-list span.presenter a:hover, #talks.page .presenter-list span.presenter a:hover, #presenters.page .talk-list span.presenter a:hover, #presenters.page .presenter-list span.presenter a:hover {
-      color: white;
-      background-color: #333;
-      text-decoration: none;
-      border: 2px solid #333;
-      border-radius: 0.125em;
-      -webkit-border-radius: 0.125em;
-      -moz-border-radius: 0.125em; }
+  #talks.page .talk-list ul.presenters, #talks.page .presenter-list ul.presenters, #presenters.page .talk-list ul.presenters, #presenters.page .presenter-list ul.presenters {
+    font-size: 3.2em; }
+    #talks.page .talk-list ul.presenters li, #talks.page .presenter-list ul.presenters li, #presenters.page .talk-list ul.presenters li, #presenters.page .presenter-list ul.presenters li {
+      margin-bottom: 0.25em; }
+      #talks.page .talk-list ul.presenters li a, #talks.page .presenter-list ul.presenters li a, #presenters.page .talk-list ul.presenters li a, #presenters.page .presenter-list ul.presenters li a {
+        color: #333;
+        padding: 0.25em 0.5em;
+        border: 2px solid #eee;
+        border-radius: 0.125em;
+        -webkit-border-radius: 0.125em;
+        -moz-border-radius: 0.125em; }
+      #talks.page .talk-list ul.presenters li a:hover, #talks.page .presenter-list ul.presenters li a:hover, #presenters.page .talk-list ul.presenters li a:hover, #presenters.page .presenter-list ul.presenters li a:hover {
+        color: white;
+        background-color: #333;
+        text-decoration: none;
+        border: 2px solid #333;
+        border-radius: 0.125em;
+        -webkit-border-radius: 0.125em;
+        -moz-border-radius: 0.125em; }
   #talks.page .talk-list .talk, #talks.page .presenter-list .talk, #presenters.page .talk-list .talk, #presenters.page .presenter-list .talk {
     padding: 2.4em 0; }
   #talks.page .talk-list div.title, #talks.page .talk-list div.presenter, #talks.page .talk-list div.description, #talks.page .talk-list div.link, #talks.page .presenter-list div.title, #talks.page .presenter-list div.presenter, #talks.page .presenter-list div.description, #talks.page .presenter-list div.link, #presenters.page .talk-list div.title, #presenters.page .talk-list div.presenter, #presenters.page .talk-list div.description, #presenters.page .talk-list div.link, #presenters.page .presenter-list div.title, #presenters.page .presenter-list div.presenter, #presenters.page .presenter-list div.description, #presenters.page .presenter-list div.link {
