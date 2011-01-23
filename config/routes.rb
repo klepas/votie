@@ -13,6 +13,5 @@ Votie::Application.routes.draw do
   match 'users/logout' => 'users#logout', :as => :user_logout
   resources :users
 
-  match '/' => 'talks#index'
-  #match '/:controller(/:action(/:id))'
+  root :to => 'talks#index'
 end
