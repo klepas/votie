@@ -1,60 +1,18 @@
-ActionController::Routing::Routes.draw do |map|
-  map.cast_vote 'votes/cast/:id', :controller => 'votes', :action => 'cast'
-  map.remove_vote 'votes/remove/:id', :controller => 'votes', :action => 'remove'
+Votie::Application.routes.draw do
+  match 'votes/cast/:id' => 'votes#cast', :as => :cast_vote
+  match 'votes/remove/:id' => 'votes#remove', :as => :remove_vote
 
-  map.vote 'talks/vote', :controller => 'talks', :action => 'vote'
-  map.presenters 'talks/presenters', :controller => 'talks', :action => 'presenters'
-  map.talk_not_found 'talks/not_found', :controller => 'talks', :action => 'not_found'
-  map.resources :talks
+  match 'talks/vote' => 'talks#vote', :as => :vote
+  match 'talks/presenters' => 'talks#presenters', :as => :presenters
+  match 'talks/not_found' => 'talks#not_found', :as => :talk_not_found
+  resources :talks
 
-  map.user_login 'users/login', :controller => 'users', :action => 'login'
-  map.user_login_dev 'users/login/dev', :controller => 'users', :action => 'login_dev'
-  map.connect 'users/callback', :controller => 'users', :action => 'callback'
-  map.user_logout 'users/logout', :controller => 'users', :action => 'logout'
-  map.resources :users
+  match 'users/login' => 'users#login', :as => :user_login
+  match 'users/login/dev' => 'users#login_dev', :as => :user_login_dev
+  match 'users/callback' => 'users#callback'
+  match 'users/logout' => 'users#logout', :as => :user_logout
+  resources :users
 
-  map.root :controller => 'talks'
-
-
-  # The priority is based upon order of creation: first created -> highest priority.
-
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
-
-  # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
-
-  # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
-  # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
-
-  # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
-
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
-
-  # See how all your routes lay out with "rake routes"
-
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  match '/' => 'talks#index'
+  #match '/:controller(/:action(/:id))'
 end

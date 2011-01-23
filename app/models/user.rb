@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
 
   # Get all users who presented a talk, ordered alphabetically
   def self.all_presenters
-    presenters = all(:joins => :talks, :group => 'user_id', :order => 'twitter_name')
+    # TODO: Verify that this works
+    #       Also, can we convert the sort_by into part of the order clause?
+    #presenters = all(:joins => :talks, :group => 'user_id', :order => 'twitter_name')
+    presenters = joins(:talks).group('user_id').order('twitter_name')
     presenters = presenters.sort_by { |p| -p.talks.last.id }
     presenters
   end

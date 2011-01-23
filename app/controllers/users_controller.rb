@@ -73,7 +73,7 @@ class UsersController < ApplicationController
       end
 
     rescue JSON::ParserError => e
-      RAILS_DEFAULT_LOGGER.warn "Error parsing response from Twitter when authenticating: "+e
+      logger.warn "Error parsing response from Twitter when authenticating: "+e
       flash[:notice] = "Authentication failed: We couldn't verify your credentials. Try again? "
       redirect_to(talks_url)
     end
