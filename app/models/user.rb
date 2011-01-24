@@ -5,14 +5,10 @@ class User < ActiveRecord::Base
   validates_presence_of :twitter_name
 
 
-  # Get all users who presented a talk, ordered alphabetically
+  # Get all users who presented a talk, ordered
+  # by when their most recenttalk was submitted
   def self.all_presenters
-    # TODO: Verify that this works
-    #       Also, can we convert the sort_by into part of the order clause?
-    #presenters = all(:joins => :talks, :group => 'user_id', :order => 'twitter_name')
-    presenters = joins(:talks).group('user_id').order('twitter_name')
-    presenters = presenters.sort_by { |p| -p.talks.last.id }
-    presenters
+    joins(:talks).order('talks.id DESC').group('user_id')
   end
 
 
