@@ -113,6 +113,9 @@ div#header {
     float: left;
     margin-right: 2em; }
 
+.errorExplanation {
+  margin-bottom: 2em; }
+
 #talks.page h2.talks, #talks.page h2.presenters, #presenters.page h2.talks, #presenters.page h2.presenters {
   font-size: 2.2em;
   text-shadow: 1px 1px 2px white;
