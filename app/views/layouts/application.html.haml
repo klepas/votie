@@ -1,0 +1,17 @@
+!!!
+%html{"xmlns" => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", "lang" => "en"}
+  %head
+    %meta{"http-equiv" => "content-type", "content" => "text/html;charset=UTF-8"}
+    %title votie!
+
+    = stylesheet_link_tag 'screen'
+    /= javascript_include_tag 'jquery'
+    /= javascript_include_tag 'main'
+
+  %body
+    #container
+      %p#flash= flash[:notice]
+
+      = render :partial => 'layouts/header'
+      = yield
+      = render :partial => 'layouts/footer'
