@@ -5,7 +5,7 @@
 
   .description Description: #{talk.description}
 
-  - if talk.link
+  - unless talk.link.blank?
     .link #{link_to slide_type_text(talk.slide_type), talk.link}
 
   .actions

@@ -3,7 +3,7 @@ module TalksHelper
   def slide_type_text(slide_type)
     slide_type_text = {'pdf' => "View PDF slides",
                        'slideshare' => "View slides on SlideShare",
-                       'other' => "View slides"}
+                       'other' => "More info"}
 
     slide_type_text[slide_type]
   end

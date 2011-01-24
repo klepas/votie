@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal; }
 
 q:before, q:after, blockquote:before, blockquote:after {
-  content: ''; }
+  content: ""; }
 
 abbr, acronym {
   border: 0; }
@@ -37,7 +37,7 @@ body {
   font-family: "Chaparral Pro", Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
   line-height: 1.5;
   background: #dfdfdf url(/images/bg.png) repeat;
-  color: #222; }
+  color: #222222; }
 
 div#container p {
   font-size: 1.6em;
@@ -56,7 +56,7 @@ div#header {
       display: block; }
   div#header ul.nav {
     font-size: 2.6em;
-    color: #333;
+    color: #333333;
     list-style: none;
     display: inline;
     float: right;
@@ -69,7 +69,7 @@ div#header {
         padding-left: 2em;
         font-weight: bold;
         text-decoration: none;
-        color: #222;
+        color: #222222;
         text-shadow: 1px 1px 2px white; }
       div#header ul.nav li a:hover {
         text-decoration: underline;
@@ -109,6 +109,9 @@ div#header {
     float: left; }
     #secondary-nav span.sign-out a {
       color: #4e9a06; }
+  #secondary-nav span.num-votes {
+    float: left;
+    margin-right: 2em; }
 
 #talks.page h2.talks, #talks.page h2.presenters, #presenters.page h2.talks, #presenters.page h2.presenters {
   font-size: 2.2em;
@@ -123,25 +126,25 @@ div#header {
 #talks.page h2:after, #presenters.page h2:after {
   content: "\2002 \2014"; }
 #talks.page .talk-list, #talks.page .presenter-list, #presenters.page .talk-list, #presenters.page .presenter-list {
-  background: #eee;
-  border-top: 1px solid #ccc;
+  background: #eeeeee;
+  border-top: 1px solid #cccccc;
   padding: 3.2em 5.6em; }
   #talks.page .talk-list ul.presenters, #talks.page .presenter-list ul.presenters, #presenters.page .talk-list ul.presenters, #presenters.page .presenter-list ul.presenters {
     font-size: 3.2em; }
     #talks.page .talk-list ul.presenters li, #talks.page .presenter-list ul.presenters li, #presenters.page .talk-list ul.presenters li, #presenters.page .presenter-list ul.presenters li {
       margin-bottom: 0.25em; }
       #talks.page .talk-list ul.presenters li a, #talks.page .presenter-list ul.presenters li a, #presenters.page .talk-list ul.presenters li a, #presenters.page .presenter-list ul.presenters li a {
-        color: #333;
+        color: #333333;
         padding: 0.25em 0.5em;
-        border: 2px solid #eee;
+        border: 2px solid #eeeeee;
         border-radius: 0.125em;
         -webkit-border-radius: 0.125em;
         -moz-border-radius: 0.125em; }
       #talks.page .talk-list ul.presenters li a:hover, #talks.page .presenter-list ul.presenters li a:hover, #presenters.page .talk-list ul.presenters li a:hover, #presenters.page .presenter-list ul.presenters li a:hover {
         color: white;
-        background-color: #333;
+        background-color: #333333;
         text-decoration: none;
-        border: 2px solid #333;
+        border: 2px solid #333333;
         border-radius: 0.125em;
         -webkit-border-radius: 0.125em;
         -moz-border-radius: 0.125em; }

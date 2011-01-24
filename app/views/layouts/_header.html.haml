@@ -27,6 +27,10 @@
         Fork me on Github!
     %div.login-toggle
       - if @user
+        %span.num-votes
+          You have
+          =@user.num_votes_remaining
+          votes remaining
         %span.signed-in
           Signed-in as
           = link_to "@#{@user.twitter_name}", "http://twitter.com/#{@user.twitter_name}"
