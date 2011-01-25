@@ -5,6 +5,18 @@ class Talk < ActiveRecord::Base
   validates_presence_of :title, :presenter, :description
   validates_length_of :description, :maximum => 140
 
+  after_initialize :set_default_values
+  before_save :ensure_link_is_absolute
+
+  def set_default_values
+    self.link ||= "http://"
+  end
+
+  def ensure_link_is_absolute
+    unless self.link.blank? or self.link =~ /^http:\/\//
+      self.link = "http://"+self.link
+    end
+  end
 
   def self.all_ordered_by_votes
     talks = Talk.all
