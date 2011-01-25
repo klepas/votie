@@ -16,6 +16,10 @@ class Talk < ActiveRecord::Base
     unless self.link.blank? or self.link =~ /^http:\/\//
       self.link = "http://"+self.link
     end
+
+    if self.link == "http://"
+      self.link = ""
+    end
   end
 
   def self.all_ordered_by_votes
