@@ -10,6 +10,8 @@ gem 'oauth'
 
 gem 'dynamic_form'
 
+gem 'jquery-rails', '>= 0.2.6'
+
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
