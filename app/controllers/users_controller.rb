@@ -24,11 +24,11 @@ class UsersController < ApplicationController
 
   # Send user to twitter.com for authorization
   def login
-    @request_token = @client.request_token
+    @request_token = @client.request_token(:oauth_callback => user_callback_url)
     session[:request_token] = @request_token.token
     session[:request_token_secret] = @request_token.secret
 
-    redirect_to @request_token.authorize_url.gsub('authorize', 'authenticate') 
+    redirect_to @request_token.authorize_url #.gsub('authorize', 'authenticate') 
   end
 
 
@@ -36,7 +36,9 @@ class UsersController < ApplicationController
   def callback
     begin
       # Exchange the request token for an access token.
-      @access_token = @client.authorize(session[:request_token], session[:request_token_secret])
+      @access_token = @client.authorize(session[:request_token],
+                                        session[:request_token_secret],
+                                        :oauth_verifier => params[:oauth_verifier])
       
       if @client.authorized?
         # Get the user's screen name

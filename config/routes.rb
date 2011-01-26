@@ -9,7 +9,7 @@ Votie::Application.routes.draw do
 
   match 'users/login' => 'users#login', :as => :user_login
   match 'users/login/dev' => 'users#login_dev', :as => :user_login_dev
-  match 'users/callback' => 'users#callback'
+  match 'users/callback' => 'users#callback', :as => :user_callback
   match 'users/logout' => 'users#logout', :as => :user_logout
   resources :users
 
