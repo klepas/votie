@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_filter :require_user
+
   # Cast a vote
   # votes/cast/talk_id
   def cast

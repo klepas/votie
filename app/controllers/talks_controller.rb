@@ -1,9 +1,6 @@
 class TalksController < ApplicationController
   before_filter :init
-
-  def secure?
-    not ['index'].include?(action_name)
-  end
+  before_filter :require_user, :except => :index
 
   def init
     # Default to not showing vote links on views

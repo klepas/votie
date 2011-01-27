@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def secure?
-    not ['login_dev', 'login', 'callback'].include?(action_name)
-  end
+  before_filter :require_user, :except => ['login_dev', 'login', 'callback']
 
 
   # Log user in without going through twitter

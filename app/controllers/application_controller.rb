@@ -7,17 +7,13 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
 
-
-  before_filter :authorize
+  before_filter :load_user
   around_filter :handle_talk_not_found
 
-  def authorize
+  def load_user
     begin
-      token = ''
-      secret = ''
+      token = secret = ''
 
       # Load user
       if session[:user_id]
@@ -25,14 +21,6 @@ class ApplicationController < ActionController::Base
         token = @user.token
         secret = @user.secret
       end
-
-      # Check authorization
-      if secure? and not @user
-        session[:return_to] = request.request_uri
-        flash[:notice] = "Please log in to view this page."
-        redirect_to :controller => 'talks', :action => 'index'
-      end
-
     rescue ActiveRecord::RecordNotFound
       session[:user_id] = nil
     end
@@ -44,6 +32,21 @@ class ApplicationController < ActionController::Base
                                        :secret => secret)
   end
 
+
+  def require_user
+    if not @user
+      session[:return_to] = request.request_uri
+      flash[:notice] = "Please log in to view this page."
+      redirect_to talks_path
+    end
+  end
+
+  def require_development_environment
+    if Rails.env != 'development'
+      flash[:notice] = "This page is not currently available."
+      redirect_to talks_path
+    end
+  end
 
   def handle_talk_not_found
     begin
@@ -62,4 +65,7 @@ class ApplicationController < ActionController::Base
     # All controllers are secure (require login) by default
     true
   end
+
+
+
 end
