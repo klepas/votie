@@ -53,7 +53,7 @@ class TalksControllerTest < ActionController::TestCase
   test "should create talk" do
     title = 'title'
     description = 'description'
-    link = 'link'
+    link = 'http://link.com'
 
     assert_difference('Talk.count') do
       post(:create,
@@ -89,7 +89,7 @@ class TalksControllerTest < ActionController::TestCase
   test "should update guest" do
     title = 'new title'
     description = 'new description'
-    link = 'new link'
+    link = 'http://new-link.com'
 
     # Check vars
     assert_not_equal title, talks(:one).title
