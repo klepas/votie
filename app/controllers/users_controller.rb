@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :require_user, :except => ['login_dev', 'login', 'callback']
-
+  before_filter :require_user, :except => [:login_dev, :login, :callback]
+  before_filter :require_development_environment, :only => :login_dev
 
   # Log user in without going through twitter
   def login_dev
