@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rake test
+echo cuc goes here

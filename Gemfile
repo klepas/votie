@@ -18,3 +18,11 @@ end
 group :production do
   gem 'mysql2'
 end
+
+group :test do
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'pickle'
+  gem 'machinist', '>= 2.0.0.beta2'
+end
