@@ -1,11 +1,7 @@
-require 'twitter_oauth'
-
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  filter_parameter_logging :password, :password_confirmation
 
   helper_method :current_user_session, :current_user
   around_filter :handle_talk_not_found
@@ -24,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    unless @user
+    unless current_user
       session[:return_to] = request.request_uri
       flash[:notice] = "Please log in to view this page."
       redirect_to talks_path
@@ -32,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_no_user
-    if @user
+    if current_user
       session[:return_to] = request.request_uri
       flash[:notice] = "You must be logged out to access this page."
       redirect_to talks_path

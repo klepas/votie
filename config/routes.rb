@@ -7,9 +7,9 @@ Votie::Application.routes.draw do
   match 'talks/not_found' => 'talks#not_found', :as => :talk_not_found
   resources :talks
 
-  match   '/signup' => 'users#new',             :as => :signup
-  match   '/login'  => 'user_sessions#new',     :as => :login
-  match   '/logout' => 'user_sessions#destroy', :as => :logout
+  match   '/signup' => 'users#new',             :as => :user_signup
+  match   '/login'  => 'user_sessions#new',     :as => :user_login
+  match   '/logout' => 'user_sessions#destroy', :as => :user_logout
   resource :user_session
   resources :users
 
