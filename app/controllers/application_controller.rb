@@ -7,36 +7,34 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-
-  before_filter :load_user
+  helper_method :current_user_session, :current_user
   around_filter :handle_talk_not_found
 
-  def load_user
-    begin
-      token = secret = ''
 
-      # Load user
-      if session[:user_id]
-        @user = User.find(session[:user_id])
-        token = @user.token
-        secret = @user.secret
-      end
-    rescue ActiveRecord::RecordNotFound
-      session[:user_id] = nil
-    end
+  private
 
-    # Initialise Twitter client
-    @client = TwitterOAuth::Client.new(:consumer_key => TwitterOAuth::CONSUMER_KEY,
-                                       :consumer_secret => TwitterOAuth::CONSUMER_SECRET,
-                                       :token => token,
-                                       :secret => secret)
+  def current_user_session
+    return @current_user_session if defined?(@current_user_session)
+    @current_user_session = UserSession.find
+  end
+  
+  def current_user
+    return @current_user if defined?(@current_user)
+    @current_user = current_user_session && current_user_session.user
   end
 
-
   def require_user
-    if not @user
+    unless @user
       session[:return_to] = request.request_uri
       flash[:notice] = "Please log in to view this page."
+      redirect_to talks_path
+    end
+  end
+
+  def require_no_user
+    if @user
+      session[:return_to] = request.request_uri
+      flash[:notice] = "You must be logged out to access this page."
       redirect_to talks_path
     end
   end
@@ -56,16 +54,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-
-  # Return whether this controller requires authorization
-  # When overriding this method, you can secure only a limited set of methods like this:
-  #   not ["insecureMethod", "anotherInsecureMethod"].include?(action_name)
-  def secure?
-    # All controllers are secure (require login) by default
-    true
+  def redirect_back_or_default(default, anchor=nil)
+    session[:return_to] += "##{anchor}" if anchor and !(session[:return_to] =~ /#/)
+    redirect_to(session[:return_to] || default || root_url)
+    session[:return_to] = nil
   end
-
-
-
 end
