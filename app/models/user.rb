@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+  acts_as_authentic
+
   has_many :talks, :foreign_key => 'user_id'
   has_many :votes
 
-  validates_presence_of :twitter_name
 
 
   # Get all users who presented a talk, ordered

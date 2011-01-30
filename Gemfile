@@ -5,8 +5,7 @@ gem 'rails', '3.0.3'
 gem 'capistrano'
 gem 'haml'
 
-gem 'twitter_oauth'
-gem 'oauth'
+gem 'authlogic',  :git => 'https://github.com/odorcicd/authlogic.git',      :branch => 'rails3'
 
 gem 'dynamic_form'
 

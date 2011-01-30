@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091125045438) do
+ActiveRecord::Schema.define(:version => 20110130042346) do
 
   create_table "talks", :force => true do |t|
     t.string   "title"
@@ -25,9 +25,20 @@ ActiveRecord::Schema.define(:version => 20091125045438) do
     t.string   "twitter_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "token"
-    t.string   "secret"
     t.string   "name"
+    t.string   "login",               :default => "", :null => false
+    t.string   "crypted_password",    :default => "", :null => false
+    t.string   "password_salt",       :default => "", :null => false
+    t.string   "persistence_token",   :default => "", :null => false
+    t.string   "single_access_token", :default => "", :null => false
+    t.string   "perishable_token",    :default => "", :null => false
+    t.integer  "login_count",         :default => 0,  :null => false
+    t.integer  "failed_login_count",  :default => 0,  :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
   end
 
   create_table "votes", :force => true do |t|
