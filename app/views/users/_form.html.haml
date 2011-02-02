@@ -1,0 +1,17 @@
+= form_for @user do |form|
+  %p
+    = form.label :login, :text => "Username"
+    = form.text_field :login
+
+  %p
+    = form.label :password
+    = form.password_field :password, :as => 'password'
+
+  %p
+    = form.label :password_confirmation
+    = form.password_field :password_confirmation, :as => 'password'
+
+  %p
+    = form.submit (@user.new_record? ? "sign up!" : "Submit")
+    or
+    = link_to 'Cancel', talks_path

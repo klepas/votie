@@ -32,7 +32,7 @@
           =pluralize @user.num_votes_remaining, "vote"
           remaining
         %span.signed-in
-          Signed-in as
+          Signed in as
           = link_to "@#{@user.twitter_name}", "http://twitter.com/#{@user.twitter_name}"
         %span.sign-out
           = link_to "Sign out?", user_logout_path

@@ -1,0 +1,13 @@
+#login.page
+  %h2.login Log in
+  = form_for @user_session, :url => user_session_path do |form|
+    %p
+      = form.label :login, :text => "Username"
+      = form.text_field :login
+
+    %p
+      = form.label :password
+      = form.password_field :password
+
+    %p
+      = form.submit "log in"
