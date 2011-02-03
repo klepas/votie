@@ -9,7 +9,7 @@ module NavigationHelpers
     case page_name
 
     when /the home\s?page/
-      '/'
+      talks_path
 
     # the following are examples using path_to_pickle
 
@@ -30,6 +30,9 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
+
+    when /^the login page$/
+      user_login_path
 
     else
       begin

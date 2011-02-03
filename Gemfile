@@ -25,4 +25,7 @@ group :test do
   gem 'capybara'
   gem 'pickle'
   gem 'machinist', '>= 2.0.0.beta2'
+  gem 'sham'
+  gem 'faker'
+  gem 'database_cleaner'
 end

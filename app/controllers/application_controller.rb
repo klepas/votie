@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def require_user
     unless current_user
-      session[:return_to] = request.request_uri
+      session[:return_to] = request.fullpath
       flash[:notice] = "Please log in to view this page."
       redirect_to talks_path
     end
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
   def require_no_user
     if current_user
-      session[:return_to] = request.request_uri
+      session[:return_to] = request.fullpath
       flash[:notice] = "You must be logged out to access this page."
       redirect_to talks_path
     end
