@@ -22,6 +22,6 @@
     = form.password_field :password_confirmation, :as => 'password'
 
   %p
-    = form.submit (@user.new_record? ? "sign up!" : "Submit")
+    = form.submit(@user.new_record? ? "sign up!" : "update my details")
     or
     = link_to 'Cancel', talks_path
