@@ -37,8 +37,10 @@
             = link_to "@#{current_user.twitter_name}", "http://twitter.com/#{current_user.twitter_name}"
           - else
             = current_user.name || current_user.login
+        %span.update-details
+          = link_to "Update my details", edit_user_path(current_user)
         %span.sign-out
           = link_to "Sign out?", user_logout_path
       - else
-        = link_to "Sign in", user_login_path
-        = link_to "Register", user_signup_path
+        %span.sign-in= link_to "Sign in", user_login_path
+        %span.register= link_to "Register", user_signup_path

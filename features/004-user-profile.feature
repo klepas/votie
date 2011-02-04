@@ -18,3 +18,12 @@ Feature: user profile
     Then user "votie" should not exist
     And user "votie_mod" should exist with login: "votie_mod", twitter_name: "votie_app_mod", name: "Votie App Mod"
     And I should see "You've succesfully updated your details." within "div#flash_notice"
+
+
+  Scenario: attempting to modify a different user
+    Given a user exists with login: "alice"
+    And a user exists with login: "bob"
+    And I successfully login as "alice"
+    When I go to the edit user page for "bob"
+    Then I should be on the home page
+    And I should see "You may not modify that user."
