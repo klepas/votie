@@ -34,6 +34,9 @@ module NavigationHelpers
     when /^the login page$/
       user_login_path
 
+    when /^the signup page$/
+      user_signup_path
+
     when /^the edit user page for "([^"]+)"$/
       edit_user_path(User.where(:login => $1).first)
 
