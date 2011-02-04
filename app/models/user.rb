@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   acts_as_authentic
 
-  has_many :talks, :foreign_key => 'user_id'
-  has_many :votes
+  has_many :talks, :foreign_key => 'user_id', :dependent => :destroy
+  has_many :votes, :dependent => :destroy
 
 
 
