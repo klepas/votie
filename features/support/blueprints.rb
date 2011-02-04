@@ -3,9 +3,9 @@ require 'sham'
 #require 'faker'
 
 User.blueprint do
-  twitter_name { "someone" }
-  name { "Some User" }
-  login { "someone" }
-  password { "password" }
+  twitter_name { "votie" }
+  name { "Votie App" }
+  login { "votie" }
+  password { "secret" }
   password_confirmation { object.password }
 end

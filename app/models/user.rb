@@ -31,4 +31,9 @@ class User < ActiveRecord::Base
   def num_votes_remaining
     Site::NUM_VOTES_PER_USER - self.votes.count
   end
+
+
+  def has_twitter?
+    !self.twitter_name.blank?
+  end
 end

@@ -9,7 +9,7 @@
     .link #{link_to slide_type_text(talk.slide_type), talk.link}
 
   .actions
-    = link_to "Edit", edit_talk_path(talk) if talk.presenter == @user
-    = link_to "Cast vote", cast_vote_path(talk) if @allow_voting and @user.can_vote_for?(talk)
-    = link_to "Remove vote", remove_vote_path(talk) if @allow_voting and @user.voted_for?(talk)
+    = link_to "Edit", edit_talk_path(talk) if talk.presenter == current_user
+    = link_to "Cast vote", cast_vote_path(talk) if @allow_voting and current_user.can_vote_for?(talk)
+    = link_to "Remove vote", remove_vote_path(talk) if @allow_voting and current_user.voted_for?(talk)
     = "+#{talk.num_votes}" if !@allow_voting

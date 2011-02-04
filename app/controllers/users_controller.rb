@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "You've successfully signed up!"
-      redirect_back_or_default(home_path)
+      redirect_back_or_default(root_path)
     else
       render :action => "new"
     end

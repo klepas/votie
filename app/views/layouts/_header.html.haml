@@ -8,7 +8,7 @@
     // This is the nav
     %li
       =link_to "Home", talks_path, {:class => :home}
-    - if @user
+    - if current_user
       %li
         =link_to "vote on talks", vote_path, {:class => :vote}
       %li
@@ -26,15 +26,19 @@
       %a{:href => "http://github.com/klepas/votie", :title => "Fork the votie source code on GitHub"}
         Fork me on Github!
     %div.login-toggle
-      - if @user
+      - if current_user
         %span.num-votes
           You have
-          =pluralize @user.num_votes_remaining, "vote"
+          = pluralize current_user.num_votes_remaining, "vote"
           remaining
         %span.signed-in
           Signed in as
-          = link_to "@#{@user.twitter_name}", "http://twitter.com/#{@user.twitter_name}"
+          - if current_user.has_twitter?
+            = link_to "@#{current_user.twitter_name}", "http://twitter.com/#{current_user.twitter_name}"
+          - else
+            = current_user.name || current_user.login
         %span.sign-out
           = link_to "Sign out?", user_logout_path
       - else
-        = link_to "Sign in with Twitter", user_login_path
+        = link_to "Sign in", user_login_path
+        = link_to "Register", user_signup_path

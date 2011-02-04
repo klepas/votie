@@ -7,7 +7,9 @@ Feature: User login
     Given a user exists with login: "votie", password: "secret"
 
   Scenario: successful login
-    Given I am on the login page
+    Given I am on the home page
+    When I follow "Sign in"
+    Then I should be on the login page
     When  I fill in "user_session_login" with "votie"
     And   I fill in "user_session_password" with "secret"
     And   I press "log in"
