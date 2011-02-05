@@ -3,9 +3,14 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require File.expand_path(File.dirname(__FILE__) + '/blueprints')
 
+require "authlogic/test_case"
+
 class ActiveSupport::TestCase
   # Reset the Machinist cache before each test.
   setup { Machinist.reset_before_test }
+
+  setup :activate_authlogic
+
 
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #

@@ -30,7 +30,7 @@ class TalksController < ApplicationController
 
   def create
     @talk = Talk.new(params[:talk])
-    @talk.presenter = @user
+    @talk.presenter = current_user
 
     if @talk.save
       flash[:notice] = 'Your exceedingly awesome talk was added to the list. Good luck!'
@@ -44,7 +44,7 @@ class TalksController < ApplicationController
   def edit
     @talk = Talk.find(params[:id])
 
-    if @talk.presenter != @user
+    if @talk.presenter != current_user
       flash[:notice] = "You may not edit someone else's talk."
       redirect_to talks_path and return
     end
@@ -54,7 +54,7 @@ class TalksController < ApplicationController
   def update
     @talk = Talk.find(params[:id])
 
-    if @talk.presenter != @user
+    if @talk.presenter != current_user
       flash[:notice] = "You may not edit someone else's talk."
       redirect_to talks_path and return
     end
@@ -71,7 +71,7 @@ class TalksController < ApplicationController
   def destroy
     @talk = Talk.find(params[:id])
 
-    if @talk.presenter != @user
+    if @talk.presenter != current_user
       flash[:notice] = "You may not delete someone else's talk."
       redirect_to talks_path and return
     end

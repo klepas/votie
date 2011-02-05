@@ -5,7 +5,8 @@ class VotesControllerTest < ActionController::TestCase
     assert_equal false, users(:one).voted_for?(talks(:one))
 
     assert_difference('Vote.count') do
-      get :cast, {:id => talks(:one).id}, {:user_id => users(:one).id}
+      UserSession.create(users(:one))
+      get :cast, {:id => talks(:one).id}
       assert_redirected_to vote_path
     end
 
@@ -17,7 +18,8 @@ class VotesControllerTest < ActionController::TestCase
     assert_equal true, users(:one).voted_for?(talks(:two))
 
     assert_difference('Vote.count', -1) do
-      get :remove, {:id => talks(:two).id}, {:user_id => users(:one).id}
+      UserSession.create(users(:one))
+      get :remove, {:id => talks(:two).id}
       assert_redirected_to vote_path
     end
 

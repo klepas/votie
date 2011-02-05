@@ -2,8 +2,12 @@
 
 one:
   id: 1
+  login: fraying
   twitter_name: fraying
+  name: Fraying
 
 two:
   id: 2
+  login: madpilot
   twitter_name: madpilot
+  name: Mad Pilot

@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "should fail if user doesn't have twitter name" do
-    user = User.new(:twitter_name => '')
+  test "should fail if user doesn't have login" do
+    user = User.new(:login => '', :password => 'secret', :password_confirmation => 'secret')
     assert_equal false, user.valid?
   end
 
@@ -20,7 +20,7 @@ class UserTest < ActiveSupport::TestCase
   
   test "should create user" do
     assert_difference('User.count', 1) do
-      user = User.new(:twitter_name => 'name')
+      user = User.new(:login => 'login', :password => 'secret', :password_confirmation => 'secret')
       user.save!
     end
   end
