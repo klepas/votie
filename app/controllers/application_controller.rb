@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     unless current_user
       session[:return_to] = request.fullpath
       flash[:notice] = "Please log in to view this page."
-      redirect_to talks_path
+      redirect_to home_path
     end
   end
 
@@ -31,14 +31,14 @@ class ApplicationController < ActionController::Base
     if current_user
       session[:return_to] = request.fullpath
       flash[:notice] = "You must be logged out to access this page."
-      redirect_to talks_path
+      redirect_to home_path
     end
   end
 
   def require_development_environment
     if Rails.env != 'development'
       flash[:notice] = "This page is not currently available."
-      redirect_to talks_path
+      redirect_to home_path
     end
   end
 
@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_back_or_default(default, anchor=nil)
     session[:return_to] += "##{anchor}" if anchor and !(session[:return_to] =~ /#/)
-    redirect_to(session[:return_to] || default || root_url)
+    redirect_to(session[:return_to] || default || home_url)
     session[:return_to] = nil
   end
 end

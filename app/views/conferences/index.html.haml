@@ -15,4 +15,4 @@
   %h2.conferences Conferences
   %ul.conferences
     - @conferences.each do |conference|
-      %li= link_to conference.name, "#"
+      %li= link_to conference.name, talks_url(:subdomain => conference.subdomain)

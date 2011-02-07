@@ -46,7 +46,7 @@ class TalksController < ApplicationController
 
     if @talk.presenter != current_user
       flash[:notice] = "You may not edit someone else's talk."
-      redirect_to talks_path and return
+      redirect_to talks_path
     end
   end
 
