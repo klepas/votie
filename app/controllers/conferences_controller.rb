@@ -1,5 +1,6 @@
 class ConferencesController < ApplicationController
   before_filter :require_user, :except => :index
+  # TODO: Disable before_filter :load_conference from application_controller?
 
   def index
     @conferences = Conference.all

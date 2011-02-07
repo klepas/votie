@@ -9,27 +9,27 @@ class TalksController < ApplicationController
 
 
   def index
-    @talks = Talk.all_ordered_by_votes
+    @talks = @conference.talks.all_ordered_by_votes
   end
 
 
   def vote
-    @talks = Talk.all(:order => 'id DESC')
+    @talks = @conference.talks.all(:order => 'id DESC')
     @allow_voting = true
   end
 
 
   def presenters
-    @presenters = User.all_presenters
+    @presenters = @conference.all_presenters
   end
 
 
   def new
-    @talk = Talk.new
+    @talk = @conference.talks.new
   end
 
   def create
-    @talk = Talk.new(params[:talk])
+    @talk = @conference.talks.new(params[:talk])
     @talk.presenter = current_user
 
     if @talk.save
@@ -42,7 +42,7 @@ class TalksController < ApplicationController
 
 
   def edit
-    @talk = Talk.find(params[:id])
+    @talk = @conference.talks.find(params[:id])
 
     if @talk.presenter != current_user
       flash[:notice] = "You may not edit someone else's talk."
@@ -52,7 +52,7 @@ class TalksController < ApplicationController
 
 
   def update
-    @talk = Talk.find(params[:id])
+    @talk = @conference.talks.find(params[:id])
 
     if @talk.presenter != current_user
       flash[:notice] = "You may not edit someone else's talk."
@@ -69,7 +69,7 @@ class TalksController < ApplicationController
 
 
   def destroy
-    @talk = Talk.find(params[:id])
+    @talk = @conference.talks.find(params[:id])
 
     if @talk.presenter != current_user
       flash[:notice] = "You may not delete someone else's talk."
