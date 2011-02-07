@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  include UrlHelper
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   helper_method :current_user_session, :current_user
@@ -51,10 +52,9 @@ class ApplicationController < ActionController::Base
   end
 
   def load_conference
-    #require 'subdomain'
     if Subdomain.matches? request
       @conference = Conference.where(:subdomain => request.subdomain).first
-      redirect_to home_path, :notice => "I couldn't find that conference. Sorry!" if @conference.nil?
+      redirect_to home_url(:subdomain => false), :notice => "I couldn't find that conference. Sorry!" if @conference.nil?
     end
   end
 

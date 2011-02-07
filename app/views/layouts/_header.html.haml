@@ -7,14 +7,14 @@
   %ul.nav
     // This is the nav
     %li
-      =link_to "Home", talks_path, {:class => :home}
-    - if current_user
+      = link_to "Home", talks_path, {:class => :home}
+    - if current_user and @conference
       %li
-        =link_to "vote on talks", vote_path, {:class => :vote}
+        = link_to "vote on talks", vote_path, {:class => :vote}
       %li
-        =link_to "submit a talk", new_talk_path
+        = link_to "submit a talk", new_talk_path
       %li
-        =link_to "view presenters", presenters_path
+        = link_to "view presenters", presenters_path
 
   = yield :hero
 
