@@ -14,7 +14,7 @@ Feature: Multiple conferences
     When  I fill in "conference_name" with "My Conference"
     And   I fill in "conference_subdomain" with "my-conference"
     And   I press "create"
-    Then  I should see 'Your conference "My Conference" has been created!' within "p#flash"
+    Then  I should see "Your conference \"My Conference\" has been created!" within "p#flash"
     And   I should be on the conference page for "My Conference"
 
 

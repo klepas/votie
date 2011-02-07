@@ -121,7 +121,7 @@ div#header {
 .errorExplanation {
   margin-bottom: 2em; }
 
-#talks.page h2.talks, #talks.page h2.presenters, #presenters.page h2.talks, #presenters.page h2.presenters {
+#talks.page h2.talks, #talks.page h2.presenters, #talks.page h2.conferences, #presenters.page h2.talks, #presenters.page h2.presenters, #presenters.page h2.conferences, #conferences.page h2.talks, #conferences.page h2.presenters, #conferences.page h2.conferences {
   font-size: 2.2em;
   text-shadow: 1px 1px 2px white;
   width: 100%;
@@ -129,26 +129,28 @@ div#header {
   margin-bottom: 0;
   border-bottom: 3px solid white;
   display: block; }
-#talks.page h2:before, #presenters.page h2:before {
+#talks.page h2:before, #presenters.page h2:before, #conferences.page h2:before {
   content: "\2003 \2014 \2002"; }
-#talks.page h2:after, #presenters.page h2:after {
+#talks.page h2:after, #presenters.page h2:after, #conferences.page h2:after {
   content: "\2002 \2014"; }
-#talks.page .talk-list, #talks.page .presenter-list, #presenters.page .talk-list, #presenters.page .presenter-list {
+#talks.page .new-conference, #presenters.page .new-conference, #conferences.page .new-conference {
+  float: right; }
+#talks.page .talk-list, #talks.page .presenter-list, #talks.page .conference-list, #presenters.page .talk-list, #presenters.page .presenter-list, #presenters.page .conference-list, #conferences.page .talk-list, #conferences.page .presenter-list, #conferences.page .conference-list {
   background: #eeeeee;
   border-top: 1px solid #cccccc;
   padding: 3.2em 5.6em; }
-  #talks.page .talk-list ul.presenters, #talks.page .presenter-list ul.presenters, #presenters.page .talk-list ul.presenters, #presenters.page .presenter-list ul.presenters {
+  #talks.page .talk-list ul.presenters, #talks.page .presenter-list ul.presenters, #talks.page .conference-list ul.presenters, #presenters.page .talk-list ul.presenters, #presenters.page .presenter-list ul.presenters, #presenters.page .conference-list ul.presenters, #conferences.page .talk-list ul.presenters, #conferences.page .presenter-list ul.presenters, #conferences.page .conference-list ul.presenters {
     font-size: 3.2em; }
-    #talks.page .talk-list ul.presenters li, #talks.page .presenter-list ul.presenters li, #presenters.page .talk-list ul.presenters li, #presenters.page .presenter-list ul.presenters li {
+    #talks.page .talk-list ul.presenters li, #talks.page .presenter-list ul.presenters li, #talks.page .conference-list ul.presenters li, #presenters.page .talk-list ul.presenters li, #presenters.page .presenter-list ul.presenters li, #presenters.page .conference-list ul.presenters li, #conferences.page .talk-list ul.presenters li, #conferences.page .presenter-list ul.presenters li, #conferences.page .conference-list ul.presenters li {
       margin-bottom: 0.25em; }
-      #talks.page .talk-list ul.presenters li a, #talks.page .presenter-list ul.presenters li a, #presenters.page .talk-list ul.presenters li a, #presenters.page .presenter-list ul.presenters li a {
+      #talks.page .talk-list ul.presenters li a, #talks.page .presenter-list ul.presenters li a, #talks.page .conference-list ul.presenters li a, #presenters.page .talk-list ul.presenters li a, #presenters.page .presenter-list ul.presenters li a, #presenters.page .conference-list ul.presenters li a, #conferences.page .talk-list ul.presenters li a, #conferences.page .presenter-list ul.presenters li a, #conferences.page .conference-list ul.presenters li a {
         color: #333333;
         padding: 0.25em 0.5em;
         border: 2px solid #eeeeee;
         border-radius: 0.125em;
         -webkit-border-radius: 0.125em;
         -moz-border-radius: 0.125em; }
-      #talks.page .talk-list ul.presenters li a:hover, #talks.page .presenter-list ul.presenters li a:hover, #presenters.page .talk-list ul.presenters li a:hover, #presenters.page .presenter-list ul.presenters li a:hover {
+      #talks.page .talk-list ul.presenters li a:hover, #talks.page .presenter-list ul.presenters li a:hover, #talks.page .conference-list ul.presenters li a:hover, #presenters.page .talk-list ul.presenters li a:hover, #presenters.page .presenter-list ul.presenters li a:hover, #presenters.page .conference-list ul.presenters li a:hover, #conferences.page .talk-list ul.presenters li a:hover, #conferences.page .presenter-list ul.presenters li a:hover, #conferences.page .conference-list ul.presenters li a:hover {
         color: white;
         background-color: #333333;
         text-decoration: none;
@@ -156,19 +158,19 @@ div#header {
         border-radius: 0.125em;
         -webkit-border-radius: 0.125em;
         -moz-border-radius: 0.125em; }
-  #talks.page .talk-list .talk, #talks.page .presenter-list .talk, #presenters.page .talk-list .talk, #presenters.page .presenter-list .talk {
+  #talks.page .talk-list .talk, #talks.page .presenter-list .talk, #talks.page .conference-list .talk, #presenters.page .talk-list .talk, #presenters.page .presenter-list .talk, #presenters.page .conference-list .talk, #conferences.page .talk-list .talk, #conferences.page .presenter-list .talk, #conferences.page .conference-list .talk {
     padding: 2.4em 0; }
-  #talks.page .talk-list div.title, #talks.page .talk-list div.presenter, #talks.page .talk-list div.description, #talks.page .talk-list div.link, #talks.page .presenter-list div.title, #talks.page .presenter-list div.presenter, #talks.page .presenter-list div.description, #talks.page .presenter-list div.link, #presenters.page .talk-list div.title, #presenters.page .talk-list div.presenter, #presenters.page .talk-list div.description, #presenters.page .talk-list div.link, #presenters.page .presenter-list div.title, #presenters.page .presenter-list div.presenter, #presenters.page .presenter-list div.description, #presenters.page .presenter-list div.link {
+  #talks.page .talk-list div.title, #talks.page .talk-list div.presenter, #talks.page .talk-list div.description, #talks.page .talk-list div.link, #talks.page .presenter-list div.title, #talks.page .presenter-list div.presenter, #talks.page .presenter-list div.description, #talks.page .presenter-list div.link, #talks.page .conference-list div.title, #talks.page .conference-list div.presenter, #talks.page .conference-list div.description, #talks.page .conference-list div.link, #presenters.page .talk-list div.title, #presenters.page .talk-list div.presenter, #presenters.page .talk-list div.description, #presenters.page .talk-list div.link, #presenters.page .presenter-list div.title, #presenters.page .presenter-list div.presenter, #presenters.page .presenter-list div.description, #presenters.page .presenter-list div.link, #presenters.page .conference-list div.title, #presenters.page .conference-list div.presenter, #presenters.page .conference-list div.description, #presenters.page .conference-list div.link, #conferences.page .talk-list div.title, #conferences.page .talk-list div.presenter, #conferences.page .talk-list div.description, #conferences.page .talk-list div.link, #conferences.page .presenter-list div.title, #conferences.page .presenter-list div.presenter, #conferences.page .presenter-list div.description, #conferences.page .presenter-list div.link, #conferences.page .conference-list div.title, #conferences.page .conference-list div.presenter, #conferences.page .conference-list div.description, #conferences.page .conference-list div.link {
     margin-bottom: 0.5em; }
-  #talks.page .talk-list div.title, #talks.page .presenter-list div.title, #presenters.page .talk-list div.title, #presenters.page .presenter-list div.title {
+  #talks.page .talk-list div.title, #talks.page .presenter-list div.title, #talks.page .conference-list div.title, #presenters.page .talk-list div.title, #presenters.page .presenter-list div.title, #presenters.page .conference-list div.title, #conferences.page .talk-list div.title, #conferences.page .presenter-list div.title, #conferences.page .conference-list div.title {
     font-size: 2.2em;
     font-weight: bold;
     font-style: italic; }
-  #talks.page .talk-list div.presenter, #talks.page .presenter-list div.presenter, #presenters.page .talk-list div.presenter, #presenters.page .presenter-list div.presenter {
+  #talks.page .talk-list div.presenter, #talks.page .presenter-list div.presenter, #talks.page .conference-list div.presenter, #presenters.page .talk-list div.presenter, #presenters.page .presenter-list div.presenter, #presenters.page .conference-list div.presenter, #conferences.page .talk-list div.presenter, #conferences.page .presenter-list div.presenter, #conferences.page .conference-list div.presenter {
     font-size: 2.2em; }
-  #talks.page .talk-list div.description, #talks.page .talk-list div.link, #talks.page .presenter-list div.description, #talks.page .presenter-list div.link, #presenters.page .talk-list div.description, #presenters.page .talk-list div.link, #presenters.page .presenter-list div.description, #presenters.page .presenter-list div.link {
+  #talks.page .talk-list div.description, #talks.page .talk-list div.link, #talks.page .presenter-list div.description, #talks.page .presenter-list div.link, #talks.page .conference-list div.description, #talks.page .conference-list div.link, #presenters.page .talk-list div.description, #presenters.page .talk-list div.link, #presenters.page .presenter-list div.description, #presenters.page .presenter-list div.link, #presenters.page .conference-list div.description, #presenters.page .conference-list div.link, #conferences.page .talk-list div.description, #conferences.page .talk-list div.link, #conferences.page .presenter-list div.description, #conferences.page .presenter-list div.link, #conferences.page .conference-list div.description, #conferences.page .conference-list div.link {
     font-size: 1.8em; }
-  #talks.page .talk-list div.actions, #talks.page .presenter-list div.actions, #presenters.page .talk-list div.actions, #presenters.page .presenter-list div.actions {
+  #talks.page .talk-list div.actions, #talks.page .presenter-list div.actions, #talks.page .conference-list div.actions, #presenters.page .talk-list div.actions, #presenters.page .presenter-list div.actions, #presenters.page .conference-list div.actions, #conferences.page .talk-list div.actions, #conferences.page .presenter-list div.actions, #conferences.page .conference-list div.actions {
     font-size: 1.4em;
     font-family: "Lucida Grande", sans-serif; }
 

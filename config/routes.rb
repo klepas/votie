@@ -13,5 +13,6 @@ Votie::Application.routes.draw do
   resource :user_session
   resources :users
 
-  root :to => 'talks#index'
+  resources :conferences
+  root :to => 'conferences#index', :as => :home
 end

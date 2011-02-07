@@ -1,0 +1,18 @@
+- content_for :hero do
+  %p.hero
+    // This is the explanatory hero text
+    %strong votie
+    is a simple web-app designed for
+    = link_to "Barcamps", "http://en.wikipedia.org/wiki/BarCamp"
+    that tracks speakers
+    %span.amp &amp;
+    their presentations with a simple voting system to find the cream-of-the-crop.
+
+
+#conferences.page
+  .new-conference= link_to "Set up a new conference", new_conference_path
+
+  %h2.conferences Conferences
+  %ul.conferences
+    - @conferences.each do |conference|
+      %li= link_to conference.name, "#"
