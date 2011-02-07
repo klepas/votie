@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   helper_method :current_user_session, :current_user
+  before_filter :load_conference
   around_filter :handle_talk_not_found
 
 
@@ -46,6 +47,14 @@ class ApplicationController < ActionController::Base
       yield
     rescue ActiveRecord::RecordNotFound
       redirect_to talk_not_found_path
+    end
+  end
+
+  def load_conference
+    #require 'subdomain'
+    if Subdomain.matches? request
+      @conference = Conference.where(:subdomain => request.subdomain).first
+      redirect_to home_path, :notice => "I couldn't find that conference. Sorry!" if @conference.nil?
     end
   end
 
