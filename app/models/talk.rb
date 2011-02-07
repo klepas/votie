@@ -1,4 +1,5 @@
 class Talk < ActiveRecord::Base
+  belongs_to :conference
   belongs_to :presenter, :class_name => 'User', :foreign_key => 'user_id'
   has_many :votes, :dependent => :destroy
 
