@@ -20,7 +20,8 @@ class TalksController < ApplicationController
 
 
   def presenters
-    @presenters = @conference.all_presenters
+    # Get all presenters, ordered by when their most recent talk was submitted
+    @presenters = @conference.presenters.order('talks.id DESC')
   end
 
 

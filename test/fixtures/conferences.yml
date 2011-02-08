@@ -1,9 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  subdomain: MyString
-
-two:
-  name: MyString
-  subdomain: MyString
+  id: 1
+  name: My Conference
+  subdomain: myconf

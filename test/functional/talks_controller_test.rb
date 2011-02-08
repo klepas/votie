@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class TalksControllerTest < ActionController::TestCase
+  def setup
+    @conference = Conference.first
+    @request.host = "#{@conference.subdomain}.local.host"
+  end
+
   test "should get top talks page" do
     get :index
     assert_response :success

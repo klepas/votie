@@ -5,14 +5,6 @@ class User < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
 
 
-
-  # Get all users who presented a talk, ordered
-  # by when their most recenttalk was submitted
-  def self.all_presenters
-    joins(:talks).order('talks.id DESC').group('user_id')
-  end
-
-
   def voted_for?(talk)
     self.votes.exists?(:talk_id => talk.id)
   end
