@@ -10,7 +10,8 @@
 
 
 #conferences.page
-  .new-conference= link_to "Set up a new conference", new_conference_path
+  - if current_user
+    .new-conference= link_to "Set up a new conference", new_conference_path
 
   %h2.conferences Conferences
   %ul.conferences

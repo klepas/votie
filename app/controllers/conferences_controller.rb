@@ -14,15 +14,10 @@ class ConferencesController < ApplicationController
     @conference = Conference.new(params[:conference])
 
     if @conference.save
-      flash[:notice] = "Your conference \"#{@conference.name}\" has been created!"
-      redirect_to conference_path(@conference)
+      flash[:notice] = "Your conference '#{@conference.name}' has been created!"
+      redirect_to talks_url(:subdomain => @conference.subdomain)
     else
       render :action => "new"
     end
-  end
-
-  def show
-    @conference = Conference.find(params[:id])
-    redirect_to conference_talks_path(@conference)
   end
 end
