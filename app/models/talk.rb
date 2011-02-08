@@ -6,6 +6,8 @@ class Talk < ActiveRecord::Base
   validates_presence_of :title, :presenter, :description
   validates_length_of :description, :maximum => 140
 
+  scope :ordered_by_votes, joins('LEFT OUTER JOIN votes ON (votes.talk_id=talks.id)').group('talks.id').order('COUNT(votes.id) DESC, talks.id DESC')
+
   after_initialize :set_default_values
   before_save :ensure_link_is_absolute
 
@@ -21,13 +23,6 @@ class Talk < ActiveRecord::Base
     if self.link == "http://"
       self.link = ""
     end
-  end
-
-  def self.all_ordered_by_votes
-    talks = Talk.all
-    talks = talks.sort_by { |talk| [talk.votes.count, talk.id] }
-    talks.reverse!
-    talks
   end
 
 

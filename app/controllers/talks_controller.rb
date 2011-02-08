@@ -9,7 +9,7 @@ class TalksController < ApplicationController
 
 
   def index
-    @talks = @conference.talks.all_ordered_by_votes
+    @talks = @conference.talks.ordered_by_votes
   end
 
 

@@ -12,6 +12,7 @@ class VoteTest < ActiveSupport::TestCase
   end
 
 
+  # TODO: Fix vote allocation to be per-conference
   test "should fail if user tries to vote too many times" do
     assert_equal 3, Site::NUM_VOTES_PER_USER
 
