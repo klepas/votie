@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "You've successfully signed up!"
-      redirect_back_or_default(talks_url)
+      redirect_back_or_default(home_url)
     else
       render :action => "new"
     end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      redirect_to talks_url, :notice => "You've successfully updated your details."
+      redirect_to home_url, :notice => "You've successfully updated your details."
     else
       render :action => "edit"
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   private
   def edit_self_only
     if !current_user or params[:id].to_i != current_user.id
-      redirect_to talks_url, :notice => 'You may not modify that user.'
+      redirect_to home_url, :notice => 'You may not modify that user.'
     end
   end
 end

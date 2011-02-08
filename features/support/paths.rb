@@ -9,7 +9,7 @@ module NavigationHelpers
     case page_name
 
     when /the home\s?page/
-      conferences_path
+      home_path
 
     # the following are examples using path_to_pickle
 

@@ -11,7 +11,7 @@ Votie::Application.routes.draw do
     match 'votes/cast/:id' => 'votes#cast', :as => :cast_vote
     match 'votes/remove/:id' => 'votes#remove', :as => :remove_vote
     
-    match '/' => 'conferences#index'
+    match '/' => 'talks#index'
   end
 
   # -- User management
