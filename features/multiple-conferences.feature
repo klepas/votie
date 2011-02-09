@@ -9,7 +9,7 @@ Feature: Multiple conferences
   Scenario: creating a conference
     Given I successfully login
     And   I am on the home page
-    When  I follow "Set up a new conference"
+    When  I follow "set up a new conference"
     Then  I should be on the new conference page
     When  I fill in "conference_name" with "My Conference"
     And   I fill in "conference_subdomain" with "my-conference"

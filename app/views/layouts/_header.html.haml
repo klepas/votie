@@ -8,13 +8,16 @@
     // This is the nav
     %li
       = link_to "Home", talks_path, {:class => :home}
-    - if current_user and @conference
+    - if current_user and @conference and !@conference.new_record?
       %li
         = link_to "vote on talks", vote_path, {:class => :vote}
       %li
         = link_to "submit a talk", new_talk_path
       %li
         = link_to "view presenters", presenters_path
+    - if current_user and (@conference.nil? or @conference.new_record?)
+      %li
+        = link_to "set up a new conference", new_conference_path
 
   = yield :hero
 
@@ -27,7 +30,7 @@
         Fork me on Github!
     %div.login-toggle
       - if current_user
-        - if @conference
+        - if @conference and !@conference.new_record?
           %span.num-votes
             You have
             = pluralize current_user.num_votes_remaining(@conference), "vote"

@@ -10,10 +10,8 @@
 
 
 #conferences.page
-  - if current_user
-    .new-conference= link_to "Set up a new conference", new_conference_path
-
   %h2.conferences Conferences
-  %ul.conferences
-    - @conferences.each do |conference|
-      %li= link_to conference.name, talks_url(:subdomain => conference.subdomain)
+  .conference-list
+    %ul.conferences
+      - @conferences.each do |conference|
+        %li= link_to conference.name, talks_url(:subdomain => conference.subdomain)

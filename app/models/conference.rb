@@ -8,7 +8,6 @@ class Conference < ActiveRecord::Base
 
   NUM_VOTES_PER_USER = 3
 
-  # TODO: Default scope order by created_at
-  #       When conferences have a date, order by duration from current time, ascending
-
+  # TODO: When conferences have a date, order by absolute duration from current time, ascending
+  default_scope order('created_at DESC')
 end
