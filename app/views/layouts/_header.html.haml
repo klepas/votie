@@ -7,14 +7,14 @@
   %ul.nav
     // This is the nav
     %li
-      =link_to "Home", talks_path, {:class => :home}
-    - if current_user
+      = link_to "Home", talks_path, {:class => :home}
+    - if current_user and @conference
       %li
-        =link_to "vote on talks", vote_path, {:class => :vote}
+        = link_to "vote on talks", vote_path, {:class => :vote}
       %li
-        =link_to "submit a talk", new_talk_path
+        = link_to "submit a talk", new_talk_path
       %li
-        =link_to "view presenters", presenters_path
+        = link_to "view presenters", presenters_path
 
   = yield :hero
 
@@ -27,10 +27,11 @@
         Fork me on Github!
     %div.login-toggle
       - if current_user
-        %span.num-votes
-          You have
-          = pluralize current_user.num_votes_remaining, "vote"
-          remaining
+        - if @conference
+          %span.num-votes
+            You have
+            = pluralize current_user.num_votes_remaining(@conference), "vote"
+            remaining
         %span.signed-in
           Signed in as
           - if current_user.has_twitter?

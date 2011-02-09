@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class VotesControllerTest < ActionController::TestCase
+  def setup
+    @conference = Conference.first
+    @request.host = "#{@conference.subdomain}.local.host"
+  end
+
   test "should cast vote" do
     assert_equal false, users(:one).voted_for?(talks(:one))
 

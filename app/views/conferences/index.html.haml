@@ -9,9 +9,11 @@
     their presentations with a simple voting system to find the cream-of-the-crop.
 
 
-#talks.page
-  %h2.talks Popular talks
-  .talk-list
-    // Grabs the talks
-    - @talks.each do |talk|
-      = render :partial => 'talk', :locals => {:talk => talk}
+#conferences.page
+  - if current_user
+    .new-conference= link_to "Set up a new conference", new_conference_path
+
+  %h2.conferences Conferences
+  %ul.conferences
+    - @conferences.each do |conference|
+      %li= link_to conference.name, talks_url(:subdomain => conference.subdomain)

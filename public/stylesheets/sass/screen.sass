@@ -111,8 +111,8 @@ div#header
 .errorExplanation
   margin-bottom: 2em
 
-#talks.page, #presenters.page
-  h2.talks, h2.presenters
+#talks.page, #presenters.page, #conferences.page
+  h2.talks, h2.presenters, h2.conferences
     font-size: 2.2em
     text-shadow: 1px 1px 2px white
     width: 100%
@@ -124,7 +124,9 @@ div#header
     content: "\2003 \2014 \2002"
   h2:after
     content: "\2002 \2014"
-  .talk-list, .presenter-list
+  .new-conference
+    float: right
+  .talk-list, .presenter-list, .conference-list
     background: #eee
     border-top: 1px solid #ccc
     padding: 3.2em 5.6em
@@ -162,7 +164,7 @@ div#header
     div.actions
       font-size: 1.4em
       font-family: "Lucida Grande", sans-serif
-    
+  
 
 // Footer
 

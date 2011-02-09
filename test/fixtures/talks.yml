@@ -2,6 +2,7 @@
 
 one:
   id: 1
+  conference_id: 1
   title: The Wisdom of Community
   user_id: 1
   description: Closing keynote for Edge of the Web
@@ -9,6 +10,7 @@ one:
 
 two:
   id: 2
+  conference_id: 1
   title: Stuff They Never Taught You At Website School
   user_id: 2
   description: Another EOTW talk
@@ -16,6 +18,7 @@ two:
 
 three:
   id: 3
+  conference_id: 1
   title: MyString
   user_id: 1
   description: MyString
@@ -23,6 +26,15 @@ three:
 
 four:
   id: 4
+  conference_id: 1
+  title: MyString
+  user_id: 1
+  description: MyString
+  link: MyString
+
+in_conference_two:
+  id: 5
+  conference_id: 2
   title: MyString
   user_id: 1
   description: MyString

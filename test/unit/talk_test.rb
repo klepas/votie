@@ -31,8 +31,8 @@ class TalkTest < ActiveSupport::TestCase
 
 
   test "should get all talks ordered by votes" do
-    talks = Talk.all_ordered_by_votes
-    assert_equal [2, 4, 3, 1], talks.map {|t| t.id}
+    talks = Talk.ordered_by_votes
+    assert_equal [2, 5, 4, 3, 1], talks.map {|t| t.id}
   end
 
 

@@ -1,0 +1,9 @@
+one:
+  id: 1
+  name: My Conference
+  subdomain: myconf
+
+two:
+  id: 2
+  name: AnotherConf
+  subdomain: another

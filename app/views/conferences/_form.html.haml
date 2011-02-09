@@ -1,0 +1,21 @@
+= form_for(@conference) do |f|
+  = f.error_messages
+
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+    %br
+    %small eg. "BarCamp Canberra 2011"
+
+  %p
+    = f.label :subdomain
+    %br
+    = f.text_field :subdomain
+    %br
+    %small eg. "bcc2011"
+
+  %p
+    = f.submit 'create'
+    or
+    = link_to 'Cancel', home_path
