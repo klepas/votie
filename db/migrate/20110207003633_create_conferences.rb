@@ -11,7 +11,7 @@ class CreateConferences < ActiveRecord::Migration
 
     # Create a conference and add existing talks to it
     c = Conference.create!(:name => "BarCamp Canberra 2010", :subdomain => "bcc2010")
-    Talk.all.each do
+    Talk.all.each do |t|
       t.conference = c
       t.save!
     end
