@@ -12,9 +12,9 @@ class VoteTest < ActiveSupport::TestCase
   end
 
 
-  # TODO: Fix vote allocation to be per-conference
   test "should fail if user tries to vote too many times" do
-    assert_equal 3, Site::NUM_VOTES_PER_USER
+    assert_equal 3, Conference::NUM_VOTES_PER_USER
+    assert_equal 3, users(:two).num_votes_remaining(conferences(:one))
 
     # Vote up to the maximum
     users(:two).vote! talks(:one)
@@ -22,8 +22,14 @@ class VoteTest < ActiveSupport::TestCase
     users(:two).vote! talks(:three)
 
     # Check that we can't vote again
+    assert_equal 0, users(:two).num_votes_remaining(conferences(:one))
     vote = Vote.new(:user => users(:two), :talk => talks(:four))
     assert_equal false, vote.valid?
+
+    # Check that we can still vote on a talk in a different conference
+    assert_equal 3, users(:two).num_votes_remaining(conferences(:two))
+    vote = Vote.new(:user => users(:two), :talk => talks(:in_conference_two))
+    assert_equal true, vote.valid?
   end
 
 

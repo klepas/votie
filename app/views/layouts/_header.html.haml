@@ -27,10 +27,11 @@
         Fork me on Github!
     %div.login-toggle
       - if current_user
-        %span.num-votes
-          You have
-          = pluralize current_user.num_votes_remaining, "vote"
-          remaining
+        - if @conference
+          %span.num-votes
+            You have
+            = pluralize current_user.num_votes_remaining(@conference), "vote"
+            remaining
         %span.signed-in
           Signed in as
           - if current_user.has_twitter?

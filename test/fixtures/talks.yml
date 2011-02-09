@@ -31,3 +31,11 @@ four:
   user_id: 1
   description: MyString
   link: MyString
+
+in_conference_two:
+  id: 5
+  conference_id: 2
+  title: MyString
+  user_id: 1
+  description: MyString
+  link: MyString

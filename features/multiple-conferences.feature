@@ -24,3 +24,7 @@ Feature: Multiple conferences
     When I go to the new conference page
     Then I should be on the home page
     And I should see "Please log in to view this page."
+
+  Scenario: num votes remaining is not shown on conferences list page
+    Given I am on the home page
+    Then I should not see "votes remaining"
