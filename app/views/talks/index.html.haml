@@ -12,6 +12,11 @@
 #talks.page
   %h2.talks Popular talks
   .talk-list
-    // Grabs the talks
     - @talks.each do |talk|
       = render :partial => 'talk', :locals => {:talk => talk}
+
+    - if @talks.empty?
+      %p
+        There are no talks yet.
+        - if current_user
+          = link_to("Submit one now", new_talk_path)+"."

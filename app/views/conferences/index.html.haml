@@ -12,6 +12,13 @@
 #conferences.page
   %h2.conferences Conferences
   .conference-list
-    %ul.conferences
-      - @conferences.each do |conference|
-        %li= link_to conference.name, talks_url(:subdomain => conference.subdomain)
+    - unless @conferences.empty?
+      %ul.conferences
+        - @conferences.each do |conference|
+          %li= link_to conference.name, talks_url(:subdomain => conference.subdomain)
+    - else
+      %p
+        There are no conferences yet.
+        - if current_user
+          Go ahead and
+          = link_to("make one", new_conference_path)+"!"

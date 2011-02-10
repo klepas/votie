@@ -1,5 +1,5 @@
 class Conference < ActiveRecord::Base
-  has_many :talks
+  has_many :talks, :dependent => :destroy
   has_many :presenters, :through => :talks, :uniq => true
   has_many :votes, :through => :talks, :uniq => true
 

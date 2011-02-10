@@ -7,7 +7,7 @@
   %ul.nav
     // This is the nav
     %li
-      = link_to "Home", talks_path, {:class => :home}
+      = link_to "Home", home_path, {:class => :home}
     - if current_user and @conference and !@conference.new_record?
       %li
         = link_to "vote on talks", vote_path, {:class => :vote}

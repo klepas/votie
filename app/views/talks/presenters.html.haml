@@ -1,11 +1,17 @@
 #presenters.page
   %h2.presenters Presenters
   .presenter-list
-    - @presenters.each do |presenter|
+    - unless @presenters.empty?
       %ul.presenters
-        %li
-          = link_to presenter.name, "http://twitter.com/#{presenter.twitter_name}"
-          /.presenter-talks
-          /- presenter.talks.each do |talk|
-          /= render :partial => 'talk', :locals => {:talk => talk}
+        - @presenters.each do |presenter|
+          %li
+            = link_to presenter.name, "http://twitter.com/#{presenter.twitter_name}"
+            /.presenter-talks
+            /- presenter.talks.each do |talk|
+            /= render :partial => 'talk', :locals => {:talk => talk}
 
+    - else
+      %p
+        There are no presenters yet.
+        - if current_user
+          = link_to("Submit a talk", new_talk_path)+" and change that."
