@@ -5,6 +5,7 @@ Feature: user log out
 
   Scenario: successful logout
     Given a user exists
-    And I successfully login
-    When I follow "Sign out?"
-    Then I should see "Logout successful!"
+    And   I successfully login
+    When  I follow "Sign out?"
+    Then  I should see "Logout successful!"
+    And   I should not see "Sign out?"

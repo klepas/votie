@@ -9,3 +9,9 @@ User.blueprint do
   password { "secret" }
   password_confirmation { object.password }
 end
+
+
+Conference.blueprint do
+  name { "My Conference" }
+  subdomain { "myconf" }
+end

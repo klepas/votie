@@ -61,3 +61,8 @@ if defined?(ActiveRecord::Base)
   rescue LoadError => ignore_if_database_cleaner_not_present
   end
 end
+
+# Reset subdomain to nil before each test
+Before do
+  Capybara.default_host = 'example.com'
+end

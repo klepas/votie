@@ -20,6 +20,14 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
+
+    if @conference
+      # If the user logged in on the root domain and they're now on a subdomain,
+      # they'll need to be logged out from the root domain for the cookie to be
+      # cleared.
+      redirect_to user_logout_url(:subdomain => false) and return
+    end
+
     flash[:notice] = "Logout successful!"
     redirect_back_or_default home_url
   end
