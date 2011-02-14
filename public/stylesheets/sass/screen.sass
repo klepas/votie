@@ -23,8 +23,8 @@ html
 
 body
   font-size: 62.5%
-  font-family: "Chaparral Pro", Georgia, "DejaVu Serif", Times, "Times New Roman", serif
-  line-height: 1.5
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana,  "Verdana Ref", sans-serif
+  line-height: 1.6
   background: #dfdfdf url(/images/bg.png) repeat
   color: #222
 
@@ -40,11 +40,12 @@ div#header
   padding-top: 9.6em
   h1
     font-size: 4.8em
-    margin-bottom: 8px
+    margin-bottom: 0.166em
     a img#logo
       float: left
       display: block
   ul.nav
+    font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif
     font-size: 2.6em
     color: #333
     list-style: none
@@ -62,7 +63,7 @@ div#header
         color: #222
         text-shadow: 1px 1px 2px white
       a:hover
-        text-decoration: underline
+        text-decoration: none
         color: #9e2519
       a.home
         text-transform: lowercase
@@ -72,11 +73,19 @@ div#header
       a.vote
         font-style: italic
   p.hero
+    font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif
     font-size: 2.2em
     text-shadow: 1px 1px 1px white
     padding: 1.5em 3em
     float: right
-    width: 600px
+    // 600px
+    width: 27.272em
+    a.feature
+      font-style: italic
+      color: #a40000
+    a.feature:hover
+      text-decoration: none
+      color: black        
 
 #secondary-nav
   position: absolute
@@ -85,7 +94,6 @@ div#header
   width: 100%
   background: white url(/images/topbar.png) bottom repeat-x
   span.github, div.login-toggle
-    font-family: "Lucida Grande", sans-serif
     font-size: 1.4em
     margin-top: 1em
   div.login-toggle
@@ -161,8 +169,7 @@ div#header
       font-size: 1.8em
     div.actions
       font-size: 1.4em
-      font-family: "Lucida Grande", sans-serif
-  
+
 
 // Footer
 
@@ -171,7 +178,6 @@ div#header
   padding: 2.4em 0
   p.copyright, p.forking
     font-size: 1.4em
-    font-family: "Lucida Grande", sans-serif
     margin-bottom: 1em
 
 
@@ -179,11 +185,11 @@ div#header
 
 h2
   font-size: 1.8em
-  margin-bottom: 8px
+  margin-bottom: 0.444em
   
 h3
   font-size: 1.6em
-  margin-bottom: 8px
+  margin-bottom: 0.5em
 
 a
   color: #204a87
@@ -198,5 +204,10 @@ a:hover
   clear: both
 
 .amp
-  font-family: Palatino, Baskerville, Georgia, serif
+  font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif
   font-style: italic
+
+span.votie
+  font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif
+  font-style: italic
+  font-weight: bold

@@ -34,8 +34,8 @@ html {
 
 body {
   font-size: 62.5%;
-  font-family: "Chaparral Pro", Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
-  line-height: 1.5;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+  line-height: 1.6;
   background: #dfdfdf url(/images/bg.png) repeat;
   color: #222222; }
 
@@ -50,11 +50,12 @@ div#header {
   padding-top: 9.6em; }
   div#header h1 {
     font-size: 4.8em;
-    margin-bottom: 8px; }
+    margin-bottom: 0.166em; }
     div#header h1 a img#logo {
       float: left;
       display: block; }
   div#header ul.nav {
+    font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
     font-size: 2.6em;
     color: #333333;
     list-style: none;
@@ -72,7 +73,7 @@ div#header {
         color: #222222;
         text-shadow: 1px 1px 2px white; }
       div#header ul.nav li a:hover {
-        text-decoration: underline;
+        text-decoration: none;
         color: #9e2519; }
       div#header ul.nav li a.home {
         text-transform: lowercase;
@@ -82,11 +83,18 @@ div#header {
       div#header ul.nav li a.vote {
         font-style: italic; }
   div#header p.hero {
+    font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
     font-size: 2.2em;
     text-shadow: 1px 1px 1px white;
     padding: 1.5em 3em;
     float: right;
-    width: 600px; }
+    width: 27.272em; }
+    div#header p.hero a.feature {
+      font-style: italic;
+      color: #a40000; }
+    div#header p.hero a.feature:hover {
+      text-decoration: none;
+      color: black; }
 
 #secondary-nav {
   position: absolute;
@@ -95,7 +103,6 @@ div#header {
   width: 100%;
   background: white url(/images/topbar.png) bottom repeat-x; }
   #secondary-nav span.github, #secondary-nav div.login-toggle {
-    font-family: "Lucida Grande", sans-serif;
     font-size: 1.4em;
     margin-top: 1em; }
   #secondary-nav div.login-toggle {
@@ -169,24 +176,22 @@ div#header {
   #talks.page .talk-list div.description, #talks.page .talk-list div.link, #talks.page .presenter-list div.description, #talks.page .presenter-list div.link, #talks.page .conference-list div.description, #talks.page .conference-list div.link, #presenters.page .talk-list div.description, #presenters.page .talk-list div.link, #presenters.page .presenter-list div.description, #presenters.page .presenter-list div.link, #presenters.page .conference-list div.description, #presenters.page .conference-list div.link, #conferences.page .talk-list div.description, #conferences.page .talk-list div.link, #conferences.page .presenter-list div.description, #conferences.page .presenter-list div.link, #conferences.page .conference-list div.description, #conferences.page .conference-list div.link {
     font-size: 1.8em; }
   #talks.page .talk-list div.actions, #talks.page .presenter-list div.actions, #talks.page .conference-list div.actions, #presenters.page .talk-list div.actions, #presenters.page .presenter-list div.actions, #presenters.page .conference-list div.actions, #conferences.page .talk-list div.actions, #conferences.page .presenter-list div.actions, #conferences.page .conference-list div.actions {
-    font-size: 1.4em;
-    font-family: "Lucida Grande", sans-serif; }
+    font-size: 1.4em; }
 
 #footer {
   background: url(/images/dot.png) top repeat-x;
   padding: 2.4em 0; }
   #footer p.copyright, #footer p.forking {
     font-size: 1.4em;
-    font-family: "Lucida Grande", sans-serif;
     margin-bottom: 1em; }
 
 h2 {
   font-size: 1.8em;
-  margin-bottom: 8px; }
+  margin-bottom: 0.444em; }
 
 h3 {
   font-size: 1.6em;
-  margin-bottom: 8px; }
+  margin-bottom: 0.5em; }
 
 a {
   color: #204a87;
@@ -199,5 +204,10 @@ a:hover {
   clear: both; }
 
 .amp {
-  font-family: Palatino, Baskerville, Georgia, serif;
+  font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
   font-style: italic; }
+
+span.votie {
+  font-family: Vollkorn, Palatino, Baskerville, Georgia, "DejaVu Serif", Times, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: bold; }

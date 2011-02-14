@@ -1,12 +1,17 @@
 - content_for :hero do
   %p.hero
     // This is the explanatory hero text
-    %strong votie
-    is a simple web-app designed for
-    = link_to "Barcamps", "http://en.wikipedia.org/wiki/BarCamp"
-    that tracks speakers
+    %span.votie votie!
+    is a dead-simple web-app that
+    = link_to("schedules talks", "#scheduling", :class => "feature") + ','
+    = link_to("tracks speakers", "#speakers", :class => "feature")
     %span.amp &amp;
-    their presentations with a simple voting system to find the cream-of-the-crop.
+    = link_to("their presentations", "#presentations", :class => "feature")
+    with a simple 
+    = link_to("voting system", "#cream-of-the-crop", :class => "feature")
+    to find the cream-of-the-crop.
+    It&rsquo;s perfect for unconferences.
+    
 
 
 #conferences.page
