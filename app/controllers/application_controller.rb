@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_session, :current_user
   before_filter :load_conference
-  around_filter :handle_talk_not_found
+
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    redirect_to talk_not_found_path
+  end
 
 
   private
@@ -40,14 +43,6 @@ class ApplicationController < ActionController::Base
     if Rails.env != 'development'
       flash[:notice] = "This page is not currently available."
       redirect_to home_path
-    end
-  end
-
-  def handle_talk_not_found
-    begin
-      yield
-    rescue ActiveRecord::RecordNotFound
-      redirect_to talk_not_found_path
     end
   end
 
