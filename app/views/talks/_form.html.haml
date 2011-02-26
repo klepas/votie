@@ -2,6 +2,25 @@
   = f.error_messages
 
   %p
+    = f.label :presenter
+    %p
+      = f.radio_button :creator_is_presenter, 1
+      = f.label :creator_is_presenter_1, "Myself"
+      %br/
+
+      = f.radio_button :creator_is_presenter, 0
+      = f.label :creator_is_presenter_0, "Someone else"
+
+      %p
+        = f.fields_for :presenter do |pf|
+          = pf.label :name
+          = pf.text_field :name
+          %br
+          = pf.label :twitter_name
+          = pf.text_field :twitter_name
+        
+
+  %p
     = f.label :title
     %br
     = f.text_field :title

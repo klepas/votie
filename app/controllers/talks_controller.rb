@@ -31,7 +31,7 @@ class TalksController < ApplicationController
 
   def create
     @talk = @conference.talks.new(params[:talk])
-    @talk.presenter = current_user
+    @talk.creator = current_user
 
     if @talk.save
       flash[:notice] = 'Your exceedingly awesome talk was added to the list. Good luck!'

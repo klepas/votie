@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
 
   def load_conference
     if Subdomain.matches? request
-      @conference = Conference.where(:subdomain => request.subdomain).first
+      @conference = Conference.where(:subdomain => Subdomain.get(request)).first
       redirect_to home_url(:subdomain => false), :notice => "I couldn't find that conference. Sorry!" if @conference.nil?
     end
   end
