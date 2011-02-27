@@ -4,28 +4,35 @@ Feature: Submitting talks not presented by yourself
   I want to be able to submit talks that were presented by other people
 
   Background:
-
-  Scenario: submitting a talk presented by the submitter
-
-  Scenario: submitting a talk presented by an existing user
-
-  Scenario: submitting a talk presented by an non-existent user
     Given a user exists
+    And another user exists with login: "presenter", name: "Andrew Presenter", twitter_name: "presenter"
     And a conference exists
     And I successfully login
     And I visit the subdomain "myconf"
-    And I am on the new talk page
-    When I fill in "talk_title" with "My Spiffy Talk"
-    And I fill in "talk_description" with "This talk is awesome!"
-    And I fill in "talk_link" with "http://google.com"
-    And I choose "Someone else"
-    And I fill in "talk_presenter_attributes_name" with "Pascal Klein"
-    And I fill in "talk_presenter_attributes_twitter_name" with "klepas"
+
+  Scenario: submitting a talk presented by the submitter
+    Given I am on the new talk page
+    When I fill in the talk details
+    And I specify that the talk is presented by myself
     And I press "submit"
-    Then I should see "Your exceedingly awesome talk was added to the list. Good luck!"
-    When I go to the talks page
-    Then I should see "My Spiffy Talk" within ".talk .title"
-    And I should see "Pascal Klein" within ".talk .presenter"
+    Then the talk submission should have been successful, with presenter: "Votie App"
+    And 2 users should exist
+
+  Scenario: submitting a talk presented by an existing user
+    Given I am on the new talk page
+    When I fill in the talk details
+    And I specify that the talk is presented by "Andrew Presenter" with twitter name "presenter"
+    And I press "submit"
+    Then the talk submission should have been successful, with presenter: "Andrew Presenter"
+    And 2 users should exist
+
+  Scenario: submitting a talk presented by an non-existent user
+    Given I am on the new talk page
+    When I fill in the talk details
+    And I specify that the talk is presented by "Pascal Klein" with twitter name "klepas"
+    And I press "submit"
+    Then the talk submission should have been successful, with presenter: "Pascal Klein"
+    And 3 users should exist
     And a user should exist with login: "klepas", name: "Pascal Klein"
 
 

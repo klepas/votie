@@ -33,6 +33,10 @@ class Talk < ActiveRecord::Base
     # Set the presenter
     self.presenter = self.creator if self.creator_is_presenter
 
+    # Detect a reference to an existing presenter
+    presenter = User.where("name = ? OR twitter_name = ?", self.presenter.name, self.presenter.twitter_name).first
+    self.presenter = presenter if presenter
+
     # If we're creating a new presenter, initialise the user name and password
     if self.presenter.new_record?
       self.presenter.login = self.presenter.twitter_name
