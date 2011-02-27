@@ -12,6 +12,7 @@
       = f.label :creator_is_presenter_0, "Someone else"
 
       %p
+        - @talk.build_presenter if @talk.presenter.nil?
         = f.fields_for :presenter do |pf|
           = pf.label :name
           = pf.text_field :name
