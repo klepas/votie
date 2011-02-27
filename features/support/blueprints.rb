@@ -15,3 +15,13 @@ Conference.blueprint do
   name { "My Conference" }
   subdomain { "myconf" }
 end
+
+
+Talk.blueprint do
+  title { "My Talk" }
+  description { "This is my talk. There are many others like it, but this one is mine." }
+  link { "http://example.com" }
+  creator { User.find_by_login("votie") }
+  presenter { User.find_by_login("votie") }
+  conference { Conference.find_by_subdomain("myconf") }
+end

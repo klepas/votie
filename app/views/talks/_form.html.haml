@@ -1,24 +1,25 @@
 = form_for(@talk) do |f|
   = f.error_messages
 
-  %p
-    = f.label :presenter
+  - if @talk.new_record?
     %p
-      = f.radio_button :creator_is_presenter, 1
-      = f.label :creator_is_presenter_1, "Myself"
-      %br/
-
-      = f.radio_button :creator_is_presenter, 0
-      = f.label :creator_is_presenter_0, "Someone else"
-
+      = f.label :presenter
       %p
-        - @talk.build_presenter if @talk.presenter.nil?
-        = f.fields_for :presenter do |pf|
-          = pf.label :name
-          = pf.text_field :name
-          %br
-          = pf.label :twitter_name
-          = pf.text_field :twitter_name
+        = f.radio_button :creator_is_presenter, 1
+        = f.label :creator_is_presenter_1, "Myself"
+        %br/
+
+        = f.radio_button :creator_is_presenter, 0
+        = f.label :creator_is_presenter_0, "Someone else"
+
+        %p
+          - @talk.build_presenter if @talk.presenter.nil?
+          = f.fields_for :presenter do |pf|
+            = pf.label :name
+            = pf.text_field :name
+            %br
+            = pf.label :twitter_name
+            = pf.text_field :twitter_name
         
 
   %p

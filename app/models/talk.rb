@@ -69,7 +69,7 @@ class Talk < ActiveRecord::Base
 
 
   def creator_is_presenter
-    @creator_is_presenter
+    @creator_is_presenter.nil? ? self.creator == self.presenter : @creator_is_presenter
   end
   def creator_is_presenter=(val)
     @creator_is_presenter = (val == '1')

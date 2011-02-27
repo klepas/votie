@@ -35,10 +35,16 @@ Feature: Submitting talks not presented by yourself
     And 3 users should exist
     And a user should exist with login: "klepas", name: "Pascal Klein"
 
+  @dev
+  Scenario Outline: editing talks
+    Given a talk exists, created by "<creator>" and presented by "<presenter>"
+    When I navigate to the edit talk page
+    And I fill in some differing details
+    And I press "submit"
+    Then the talk update should have been successful
 
-  Scenario: editing a talk created and presented by the same person
-  
-  Scenario: the talk creator edits a talk presented by someone else
-
-  Scenario: the talk presentor edits a talk created by someone else
-
+    Examples:
+      | creator   | presenter |
+      | votie     | votie     |
+      | votie     | presenter |
+      | presenter | votie     |
