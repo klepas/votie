@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
   end
 
 
+  def can_edit?(talk)
+    talk.presenter == self || talk.creator == self
+  end
+
   def has_twitter?
     !self.twitter_name.blank?
   end

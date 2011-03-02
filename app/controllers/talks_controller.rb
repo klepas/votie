@@ -45,8 +45,8 @@ class TalksController < ApplicationController
   def edit
     @talk = @conference.talks.find(params[:id])
 
-    if @talk.presenter != current_user
-      flash[:notice] = "You may not edit someone else's talk."
+    if !current_user.can_edit?(@talk)
+      flash[:notice] = "You may not edit that talk."
       redirect_to talks_path
     end
   end
@@ -55,13 +55,13 @@ class TalksController < ApplicationController
   def update
     @talk = @conference.talks.find(params[:id])
 
-    if @talk.presenter != current_user
-      flash[:notice] = "You may not edit someone else's talk."
+    if !current_user.can_edit?(@talk)
+      flash[:notice] = "You may not edit that talk."
       redirect_to talks_path and return
     end
 
     if @talk.update_attributes(params[:talk])
-      flash[:notice] = "Your talk has been updated."
+      flash[:notice] = "The talk has been updated."
       redirect_to talks_path
     else
       render :action => "edit"
@@ -72,8 +72,8 @@ class TalksController < ApplicationController
   def destroy
     @talk = @conference.talks.find(params[:id])
 
-    if @talk.presenter != current_user
-      flash[:notice] = "You may not delete someone else's talk."
+    if current_user.can_edit?(@talk)
+      flash[:notice] = "You may not delete that talk."
       redirect_to talks_path and return
     end
 

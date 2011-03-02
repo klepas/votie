@@ -1,6 +1,10 @@
 class Subdomain
   def self.get(request)
-    Rails.env == 'test' ? Capybara.default_host.sub(/(.|)example.com/, "") : request.subdomain
+    if Rails.env == 'test' && (request.subdomain.nil? || request.subdomain.blank?)
+      Capybara.default_host.sub(/(.|)example.com/, "")
+    else
+      request.subdomain
+    end
   end
 
   def self.matches?(request)

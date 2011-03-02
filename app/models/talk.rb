@@ -1,6 +1,6 @@
 class Talk < ActiveRecord::Base
   belongs_to :conference
-  belongs_to :creator, :class_name => 'User', :foreign_key => 'user_id'
+  belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
   belongs_to :presenter, :class_name => 'User', :foreign_key => 'user_id'
   has_many :votes, :dependent => :destroy
 
@@ -33,20 +33,21 @@ class Talk < ActiveRecord::Base
     # Set the presenter
     self.presenter = self.creator if self.creator_is_presenter
 
-    # Detect a reference to an existing presenter
-    presenter = User.where("name = ? OR twitter_name = ?", self.presenter.name, self.presenter.twitter_name).first
-    self.presenter = presenter if presenter
-
-    # If we're creating a new presenter, initialise the user name and password
-    if self.presenter.new_record?
-      self.presenter.login = self.presenter.twitter_name
-      self.presenter.login = self.presenter.name.gsub(/ /, '-') if self.presenter.login.blank?
-
-      password = Authlogic::Random.friendly_token
-      self.presenter.password = password
-      self.presenter.password_confirmation = password
+    unless self.presenter.nil?
+      # Detect a reference to an existing presenter
+      presenter = User.where("name = ? OR twitter_name = ?", self.presenter.name, self.presenter.twitter_name).first
+      self.presenter = presenter if presenter
+      
+      # If we're creating a new presenter, initialise the user name and password
+      if self.presenter.new_record?
+        self.presenter.login = self.presenter.twitter_name
+        self.presenter.login = self.presenter.name.gsub(/ /, '-') if self.presenter.login.blank?
+        
+        password = Authlogic::Random.friendly_token
+        self.presenter.password = password
+        self.presenter.password_confirmation = password
+      end
     end
-    
   end
 
   def num_votes
@@ -71,6 +72,7 @@ class Talk < ActiveRecord::Base
   def creator_is_presenter
     @creator_is_presenter.nil? ? self.creator == self.presenter : @creator_is_presenter
   end
+
   def creator_is_presenter=(val)
     @creator_is_presenter = (val == '1')
   end

@@ -40,9 +40,9 @@ Then /the talk submission should have been successful, with presenter: "([^"]+)"
 end
 
 Then /^the talk update should have been successful$/ do
-  Then 'I should see "Your talk has been updated."'
+  Then 'I should see "The talk has been updated."'
   When 'I go to the talks page'
   Then 'I should see "My Edited Talk" within ".talk .title"'
   Then 'I should see "This talk has been edited." within ".talk .description"'
-  Then 'I should see "More info" within "a[href = \'http://yahoo.com.au\']"'
+  Then %(I should see "More info" within "a[href = 'http://yahoo.com.au']")
 end

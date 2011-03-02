@@ -1,13 +1,15 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 one:
   id: 1
   login: fraying
   twitter_name: fraying
   name: Fraying
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("fraying" + salt) %>
 
 two:
   id: 2
   login: madpilot
   twitter_name: madpilot
   name: Mad Pilot
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("madpilot" + salt) %>
